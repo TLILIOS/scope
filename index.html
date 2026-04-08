@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>iOS Senior Prep — Programme de révision</title>
+<meta name="description" content="Programme interactif de préparation aux entretiens iOS Senior. 32 thèmes, contenu complet, suivi de progression.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌘</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg0:#09090b;--bg1:#111113;--bg2:#18181b;--bg3:#1c1c20;--t1:#fafaf9;--t2:#a1a1aa;--t3:#71717a;--b1:#27272a;--b2:#3f3f46;--accent:#a78bfa;--accentBg:rgba(167,139,250,0.08);--green:#34d399;--greenBg:rgba(52,211,153,0.1);--amber:#fbbf24;--amberBg:rgba(251,191,36,0.1);--red:#f87171;--redBg:rgba(248,113,113,0.1);--r:10px;--rl:14px;--fb:'DM Sans',system-ui,sans-serif;--fs:'Source Serif 4',Georgia,serif;--fm:'JetBrains Mono',monospace;--sw:260px;--tr:.2s cubic-bezier(.4,0,.2,1)}
+html{font-size:15px;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg0);color:var(--t1);min-height:100vh;display:flex;overflow-x:hidden}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--b1);border-radius:3px}
+.sb{position:fixed;left:0;top:0;bottom:0;width:var(--sw);background:var(--bg1);border-right:1px solid var(--b1);display:flex;flex-direction:column;z-index:100;transition:transform .3s ease}
+.sb-brand{padding:1.5rem 1.25rem;border-bottom:1px solid var(--b1)}
+.sb-brand h1{font-size:1.1rem;font-weight:600;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}.sb-brand h1 span{color:var(--accent)}
+.sb-brand p{font-size:.73rem;color:var(--t3);margin-top:4px;font-family:var(--fm);letter-spacing:.04em;text-transform:uppercase}
+.sb-nav{flex:1;overflow-y:auto;padding:1rem 0}
+.ns{padding:0 1rem;margin-bottom:.75rem}
+.nl{font-size:.7rem;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;padding:0 .25rem;margin-bottom:.5rem}
+.ni{display:flex;align-items:center;gap:10px;padding:.55rem .75rem;border-radius:var(--r);color:var(--t2);cursor:pointer;transition:all var(--tr);font-size:.87rem;position:relative}
+.ni:hover{color:var(--t1);background:var(--bg2)}
+.ni.a{color:var(--t1);background:var(--accentBg)}
+.ni.a::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:18px;background:var(--accent);border-radius:2px}
+.ni svg{width:18px;height:18px;opacity:.6;flex-shrink:0}.ni.a svg{opacity:1}
+.nb{margin-left:auto;font-size:.7rem;font-family:var(--fm);background:var(--bg2);padding:2px 7px;border-radius:6px;color:var(--t3)}.ni.a .nb{background:var(--accentBg);color:var(--accent)}
+.sb-ft{padding:1rem 1.25rem;border-top:1px solid var(--b1);font-size:.73rem;color:var(--t3);font-family:var(--fm)}
+.mn{margin-left:var(--sw);flex:1;min-height:100vh}
+.pg{display:none;padding:2rem 2.5rem;max-width:960px;animation:fi .25s ease}.pg.a{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.dg{font-family:var(--fs);font-size:1.6rem;font-weight:600;margin-bottom:.25rem}
+.ds{color:var(--t2);font-size:.87rem;margin-bottom:2rem}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:2.5rem}
+.sc{background:var(--bg3);border:1px solid var(--b1);border-radius:var(--rl);padding:1.1rem 1.2rem}
+.sl{font-size:.73rem;color:var(--t3);text-transform:uppercase;letter-spacing:.04em;font-weight:500;margin-bottom:6px}
+.sv{font-size:1.5rem;font-weight:600;font-family:var(--fm);letter-spacing:-.02em}
+.sv.p{color:var(--accent)}.sv.g{color:var(--green)}.sv.am{color:var(--amber)}
+.po{background:var(--bg3);border:1px solid var(--b1);border-radius:var(--rl);padding:1.5rem;margin-bottom:2rem}
+.po h3{font-size:.93rem;font-weight:500;margin-bottom:1rem}
+.wp{display:flex;align-items:center;gap:12px;margin-bottom:10px}.wp:last-child{margin-bottom:0}
+.wp .wl{width:90px;color:var(--t2);flex-shrink:0;font-size:.8rem}
+.wp .wb{flex:1;height:6px;background:var(--bg0);border-radius:3px;overflow:hidden}
+.wp .wf{height:100%;border-radius:3px;transition:width .4s}
+.wp .wc{width:36px;text-align:right;font-family:var(--fm);font-size:.8rem;color:var(--t3)}
+.rs h3{font-size:.93rem;font-weight:500;margin-bottom:1rem}
+.rg{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.rc{background:var(--bg3);border:1px solid var(--b1);border-radius:var(--r);padding:1rem;cursor:pointer;transition:all var(--tr)}
+.rc:hover{border-color:var(--b2);transform:translateY(-1px)}
+.rc .rt{font-weight:500;font-size:.87rem;margin-bottom:4px}.rc .rw{font-size:.73rem;color:var(--t3);font-family:var(--fm)}
+.wh{margin-bottom:2rem}.wh h2{font-family:var(--fs);font-size:1.4rem;font-weight:600;margin-bottom:4px}.wh p{color:var(--t2);font-size:.87rem}
+.wh .pr{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:.8rem;color:var(--t3)}
+.wh .pr .b{flex:1;max-width:200px;height:4px;background:var(--bg2);border-radius:2px;overflow:hidden}.wh .pr .f{height:100%;background:var(--green);border-radius:2px}
+.tl{display:flex;flex-direction:column;gap:8px}
+.tr{display:flex;align-items:center;gap:14px;background:var(--bg3);border:1px solid var(--b1);border-radius:var(--r);padding:1rem 1.2rem;cursor:pointer;transition:all var(--tr)}
+.tr:hover{border-color:var(--b2);background:var(--bg2)}.tr.dn{border-color:rgba(52,211,153,.2)}
+.tn{font-family:var(--fm);font-size:.73rem;color:var(--t3);width:24px;flex-shrink:0}
+.ti{flex:1;min-width:0}.ti .tt{font-weight:500;font-size:.93rem}.ti .td{font-size:.8rem;color:var(--t2);margin-top:2px}
+.lv{font-size:.67rem;font-weight:600;padding:3px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:.04em;flex-shrink:0}
+.lv-mid{background:var(--amberBg);color:var(--amber)}.lv-hard{background:var(--redBg);color:var(--red)}.lv-expert{background:var(--accentBg);color:var(--accent)}
+.ck{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--b1);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all var(--tr)}
+.ck.cd{background:var(--green);border-color:var(--green)}.ck.cd::after{content:'';width:6px;height:6px;background:var(--bg0);border-radius:50%}
+.bk{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--t3);cursor:pointer;margin-bottom:1.5rem;transition:color var(--tr)}.bk:hover{color:var(--t1)}
+.dt{font-family:var(--fs);font-size:1.5rem;font-weight:600;margin-bottom:4px}
+.dm{display:flex;align-items:center;gap:12px;margin-bottom:2rem;flex-wrap:wrap}
+.cs{margin-bottom:2rem}.cs:last-child{margin-bottom:0}
+.cl{font-size:.7rem;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.cl::after{content:'';flex:1;height:1px;background:var(--b1)}
+.ct{font-size:.93rem;line-height:1.75;color:var(--t2)}
+.cb{background:var(--bg1);border:1px solid var(--b1);border-radius:var(--r);padding:1.1rem 1.25rem;font-family:var(--fm);font-size:.8rem;line-height:1.7;overflow-x:auto;white-space:pre;color:var(--t1)}
+.kw{color:var(--accent)}.str{color:var(--green)}.cmt{color:var(--t3);font-style:italic}.num{color:var(--amber)}
+.ql{display:flex;flex-direction:column;gap:8px}
+.qi{border:1px solid var(--b1);border-radius:var(--r);overflow:hidden;transition:border-color var(--tr)}.qi:hover{border-color:var(--b2)}
+.qq{padding:.85rem 1.1rem;font-size:.87rem;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:background var(--tr)}.qq:hover{background:var(--bg2)}
+.qa{font-size:.7rem;color:var(--t3);transition:transform .2s;flex-shrink:0}.qi.o .qa{transform:rotate(90deg)}
+.qn{display:none;padding:0 1.1rem 1rem;font-size:.85rem;line-height:1.7;color:var(--t2);border-top:1px solid var(--b1)}.qi.o .qn{display:block;padding-top:.85rem}
+.tb{background:var(--amberBg);border:1px solid rgba(251,191,36,.15);border-radius:var(--r);padding:1rem 1.2rem;font-size:.85rem;line-height:1.7;color:var(--amber)}
+.da{display:flex;gap:10px;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--b1)}
+.bt{padding:.6rem 1.2rem;border-radius:var(--r);font-size:.85rem;font-weight:500;border:1px solid var(--b1);background:transparent;color:var(--t1);cursor:pointer;transition:all var(--tr);font-family:var(--fb)}.bt:hover{background:var(--bg2);border-color:var(--b2)}
+.bt-g{border-color:rgba(52,211,153,.3);color:var(--green)}.bt-g:hover{background:var(--greenBg)}.bt-g.on{background:var(--green);color:var(--bg0);border-color:var(--green)}
+.sw{position:relative;margin-bottom:2rem}
+.si{width:100%;padding:.7rem 1rem .7rem 2.5rem;background:var(--bg3);border:1px solid var(--b1);border-radius:var(--r);font-size:.87rem;color:var(--t1);font-family:var(--fb);outline:none;transition:border-color var(--tr)}.si:focus{border-color:var(--accent)}.si::placeholder{color:var(--t3)}
+.sic{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--t3)}
+.mt{display:none;position:fixed;top:1rem;left:1rem;z-index:200;width:36px;height:36px;border-radius:var(--r);background:var(--bg1);border:1px solid var(--b1);cursor:pointer;align-items:center;justify-content:center;color:var(--t1)}
+.ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:90}
+@media(max-width:768px){.sb{transform:translateX(-100%)}.sb.op{transform:none}.ov.op{display:block}.mt{display:flex}.mn{margin-left:0}.pg{padding:1.25rem;padding-top:3.5rem}.sg{grid-template-columns:repeat(2,1fr)}.rg{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<button class="mt" id="mt"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5h12M3 9h12M3 13h12"/></svg></button>
+<div class="ov" id="ov"></div>
+<aside class="sb" id="sb">
+<div class="sb-brand"><h1><span>⌘</span> iOS Senior Prep</h1><p>Programme de révision</p></div>
+<nav class="sb-nav">
+<div class="ns"><div class="nl">Général</div>
+<div class="ni a" data-p="dash"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2" width="6" height="6" rx="1.5"/><rect x="10" y="2" width="6" height="6" rx="1.5"/><rect x="2" y="10" width="6" height="6" rx="1.5"/><rect x="10" y="10" width="6" height="6" rx="1.5"/></svg>Dashboard</div>
+<div class="ni" data-p="search"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="5"/><path d="M12 12l3.5 3.5"/></svg>Recherche</div></div>
+<div class="ns"><div class="nl">Programme</div>
+<div class="ni" data-p="w0"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 9h12M9 3v12"/></svg>Swift fondamental<span class="nb" id="b0">0/8</span></div>
+<div class="ni" data-p="w1"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 6l4 4-4 4M10 14h5"/></svg>Concurrency<span class="nb" id="b1">0/8</span></div>
+<div class="ni" data-p="w2"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="12" height="12" rx="2"/><path d="M3 7h12M7 7v8"/></svg>Architecture<span class="nb" id="b2">0/8</span></div>
+<div class="ni" data-p="w3"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 2l2 4h4l-3.2 2.5L13 13 9 10.2 5 13l1.2-4.5L3 6h4z"/></svg>System design<span class="nb" id="b3">0/8</span></div></div>
+</nav>
+<div class="sb-ft">v1.0 — Alto · Craft at altitude.</div>
+</aside>
+<main class="mn">
+<div class="pg a" id="pg-dash"><div class="dg">Bon retour, Hamdi</div><div class="ds">Ton parcours vers le poste iOS Senior.</div><div class="sg"><div class="sc"><div class="sl">Maîtrisés</div><div class="sv g" id="sd">0</div></div><div class="sc"><div class="sl">Progression</div><div class="sv p" id="sp">0%</div></div><div class="sc"><div class="sl">Restants</div><div class="sv" id="sr">32</div></div><div class="sc"><div class="sl">Niveau moyen</div><div class="sv am" id="sa">—</div></div></div><div class="po"><h3>Progression par semaine</h3><div id="wb"></div></div><div class="rs"><h3>Reprendre l'étude</h3><div class="rg" id="rg"></div></div></div>
+<div class="pg" id="pg-search"><h2 style="font-family:var(--fs);font-size:1.4rem;font-weight:600;margin-bottom:1.5rem">Recherche</h2><div class="sw"><svg class="sic" width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="5"/><path d="M12 12l3.5 3.5"/></svg><input class="si" id="sI" placeholder="Rechercher un thème…"></div><div id="sR" class="tl"></div></div>
+<div class="pg" id="pg-w0"></div><div class="pg" id="pg-w1"></div><div class="pg" id="pg-w2"></div><div class="pg" id="pg-w3"></div>
+<div class="pg" id="pg-topic"></div>
+</main>
+<script>
+const WEEKS=[
+{name:"Semaine 1",title:"Swift fondamental",desc:"Mémoire, types, protocoles, closures, generics",color:"#34d399",topics:[
+{id:"arc",t:"ARC & gestion mémoire",d:"Retain cycles, weak/unowned, memory graph debugger",lvl:"mid"},
+{id:"generics",t:"Generics & associated types",d:"Type erasure, opaque types, some vs any",lvl:"hard"},
+{id:"protocols",t:"Protocoles avancés",d:"PAT, existentials, primary associated types",lvl:"expert"},
+{id:"enums",t:"Enums & pattern matching",d:"Recursive, associated values, Codable enums",lvl:"mid"},
+{id:"closures",t:"Closures & captures",d:"Escaping, autoclosure, capture lists, @Sendable",lvl:"hard"},
+{id:"optionals",t:"Optionals en profondeur",d:"map/flatMap, guard let, nil coalescing",lvl:"mid"},
+{id:"errors",t:"Gestion d'erreurs",d:"Typed throws Swift 6, Result, rethrows",lvl:"mid"},
+{id:"collections",t:"Collections & algorithmes",d:"Lazy sequences, COW, custom Collection",lvl:"hard"}
+]},
+{name:"Semaine 2",title:"Concurrency Swift 6",desc:"async/await, actors, Sendable, structured concurrency",color:"#a78bfa",topics:[
+{id:"async",t:"async/await",d:"Suspension points, Task, async let",lvl:"hard"},
+{id:"actors",t:"Actors & isolation",d:"Reentrancy, nonisolated, global actors",lvl:"expert"},
+{id:"structured",t:"Structured concurrency",d:"TaskGroup, withThrowingTaskGroup, cancellation",lvl:"hard"},
+{id:"sendable",t:"Sendable & data races",d:"@Sendable, @unchecked Sendable, transferring",lvl:"expert"},
+{id:"mainactor",t:"@MainActor patterns",d:"UI isolation, ViewModel boundaries",lvl:"hard"},
+{id:"taskgroups",t:"Task groups avancés",d:"Concurrence limitée, erreurs partielles",lvl:"expert"},
+{id:"continuations",t:"Continuations",d:"withCheckedContinuation, bridging callbacks",lvl:"hard"},
+{id:"combinevs",t:"Combine vs async/await",d:"AsyncSequence, AsyncStream, migration",lvl:"mid"}
+]},
+{name:"Semaine 3",title:"Architecture & frameworks",desc:"MVVM, SwiftUI, SwiftData, testing, accessibilité",color:"#fbbf24",topics:[
+{id:"mvvm",t:"MVVM + Clean Architecture",d:"Use Cases, Repository pattern, DI",lvl:"hard"},
+{id:"swiftuilife",t:"SwiftUI lifecycle",d:"View identity, State invalidation, body",lvl:"expert"},
+{id:"swiftdata",t:"SwiftData & persistence",d:"@Model, ModelContext, migrations, CloudKit",lvl:"hard"},
+{id:"di",t:"Dependency injection",d:"Environment, protocol-based, containers",lvl:"mid"},
+{id:"navigation",t:"Navigation avancée",d:"NavigationStack, deep linking, coordinators",lvl:"hard"},
+{id:"testing",t:"Swift Testing framework",d:"@Test, #expect, mocks protocoles",lvl:"mid"},
+{id:"accessibility",t:"Accessibilité iOS",d:"VoiceOver, Dynamic Type, semantic views",lvl:"mid"},
+{id:"observable",t:"@Observable patterns",d:"@Bindable, observation tracking, @Entry",lvl:"hard"}
+]},
+{name:"Semaine 4",title:"System design & entretien",desc:"Architecture, networking, performance, behavioral",color:"#f87171",topics:[
+{id:"sysdesign",t:"System design iOS",d:"Offline-first, sync, modularisation",lvl:"expert"},
+{id:"networking",t:"Couche réseau",d:"URLSession avancé, retry, interceptors",lvl:"hard"},
+{id:"caching",t:"Stratégies de cache",d:"NSCache, disk cache, ETags",lvl:"mid"},
+{id:"perf",t:"Performance & Instruments",d:"Time Profiler, Allocations, hangs",lvl:"hard"},
+{id:"cicd",t:"CI/CD & distribution",d:"GitHub Actions, Xcode Cloud, Fastlane",lvl:"mid"},
+{id:"codereview",t:"Code review & qualité",d:"PR strategy, DocC, SwiftLint",lvl:"mid"},
+{id:"behavioral",t:"Questions comportementales",d:"Méthode STAR, leadership, conflits",lvl:"mid"},
+{id:"livecoding",t:"Live coding strategies",d:"Patterns, communication, gestion du temps",lvl:"hard"}
+]}
+];
+
+const CONTENT={
+// ===== WEEK 1 =====
+arc:{
+concept:"ARC (Automatic Reference Counting) gère la mémoire des types référence en comptant les strong references. Quand le compteur tombe à zéro, l'instance est désallouée. Les retain cycles surviennent quand deux objets se référencent mutuellement. On utilise weak (optional, peut devenir nil) ou unowned (non-optional, crash si accédé après désallocation) pour briser ces cycles.",
+code:`class ViewController {\n    var onComplete: (() -> Void)?\n\n    func setupHandler() {\n        // MAUVAIS: retain cycle\n        onComplete = { self.doSomething() }\n\n        // BON: capture list avec weak\n        onComplete = { [weak self] in\n            guard let self else { return }\n            self.doSomething()\n        }\n    }\n\n    deinit { print("ViewController désalloué") }\n    func doSomething() { }\n}`,
+questions:[
+{q:"Différence entre weak et unowned ?",a:"weak crée une référence optionnelle qui passe à nil après désallocation. unowned suppose que l'objet survivra toujours — crash si accédé après désallocation. Utiliser weak quand la lifetime est incertaine (delegates, closures async), unowned quand le parent survit toujours (child → parent)."},
+{q:"Comment détecter un retain cycle ?",a:"Memory Graph Debugger (Debug > Debug Memory Graph) dans Xcode pour visualiser les cycles. Instruments > Leaks pour la détection runtime. Vérifier que deinit est appelé sur vos objets clés. os.Logger dans deinit pour monitorer en debug."},
+{q:"Autorelease pool en Swift — encore utile ?",a:"Rarement en Swift pur, mais autoreleasepool {} reste utile dans les boucles créant beaucoup d'objets temporaires bridgés Foundation (traitement batch d'images, parsing massif de NSString). Sans pool explicite, la mémoire grimpe jusqu'à la fin de la boucle."}
+],traps:"Oublier [weak self] dans les closures stockées — cause n°1 de memory leaks.\nUtiliser unowned par défaut — crash sans message clair si l'objet est désalloué.\nNe pas vérifier deinit — les retain cycles passent inaperçus."},
+
+generics:{
+concept:"Les generics permettent du code flexible et type-safe. Les associated types sont l'équivalent pour les protocoles. some (opaque type) cache le type concret résolu à la compilation (zero overhead). any (existential) stocke différents types concrets au runtime avec coût de performance (heap allocation, dynamic dispatch). Préférer some par défaut.",
+code:`protocol DataSource {\n    associatedtype Item: Identifiable\n    func fetchAll() async throws -> [Item]\n}\n\n// some — résolu à la compilation, performant\nfunc makeLocalSource() -> some DataSource {\n    LocalDataSource()\n}\n\n// any — dynamic dispatch, collections hétérogènes\nfunc getSources() -> [any DataSource] {\n    [LocalDataSource(), RemoteDataSource()]\n}\n\n// Type erasure manuelle\nstruct AnyDataSource<T: Identifiable>: DataSource {\n    private let _fetchAll: () async throws -> [T]\n    init<S: DataSource>(_ s: S) where S.Item == T {\n        _fetchAll = s.fetchAll\n    }\n    func fetchAll() async throws -> [T] { try await _fetchAll() }\n}`,
+questions:[
+{q:"Différence some vs any — impact performance ?",a:"some garantit un seul type concret résolu à la compilation — zero overhead. any nécessite un existential container (allocation heap si > 3 mots) et dispatch dynamique via witness table. Préférer some par défaut, any seulement pour collections hétérogènes."},
+{q:"Pourquoi les PAT ne peuvent pas être types directement ?",a:"Un protocole avec associated type ne définit pas un type complet — l'associated type doit être résolu pour la layout mémoire. Depuis Swift 5.7, any Protocol crée un existential avec coût runtime. some Protocol est préféré car optimisable à la compilation."},
+{q:"Expliquez la conditional conformance.",a:"Un type générique se conforme à un protocole seulement si son paramètre remplit une condition. Array: Equatable where Element: Equatable. Fondamental pour que [Int] soit automatiquement Equatable sans que Array le soit dans le cas général."}
+],traps:"any partout alors que some suffit — coût runtime réel inutile.\nsome en propriété stockée exige un type concret unique — pas interchangeable.\nConfondre type erasure (struct wrapper, compilation) et existential (container runtime)."},
+
+protocols:{
+concept:"Les protocoles avancés incluent PAT (Protocol with Associated Types), primary associated types (Swift 5.7+) pour contraindre les existentials (any Collection<Int>), et la distinction static dispatch (some/generics) vs dynamic dispatch (any). Self requirements empêchent l'usage comme existential sans contrainte.",
+code:`// Primary associated types (Swift 5.7+)\nprotocol Repository<Model> {\n    associatedtype Model: Identifiable & Sendable\n    func fetch(id: Model.ID) async throws -> Model?\n    func fetchAll() async throws -> [Model]\n    func save(_ model: Model) async throws\n}\n\n@MainActor @Observable\nclass ItemListViewModel<R: Repository> where R.Model == Item {\n    private let repository: R\n    var items: [Item] = []\n\n    init(repository: R) { self.repository = repository }\n\n    func load() async {\n        items = (try? await repository.fetchAll()) ?? []\n    }\n}\n\n// Dynamic dispatch — hétérogène\nfunc allRepos() -> [any Repository<Item>] {\n    [LocalRepository(), CloudRepository()]\n}`,
+questions:[
+{q:"Qu'est-ce qu'un primary associated type ?",a:"Permet de contraindre un associated type dans la syntaxe existential : any Collection<Int>. Résout l'ergonomie des PAT en rendant les existentials utilisables avec contraintes de type, tout en gardant la flexibilité du dynamic dispatch."},
+{q:"Static dispatch vs dynamic dispatch pour les protocoles ?",a:"Static : protocole comme contrainte generic ou some — compilateur connaît le type concret, peut inliner. Dynamic : any — existential container + witness table au runtime. @objc ajoute objc_msgSend. Static est plus performant, dynamic permet l'hétérogénéité."},
+{q:"Protocole vs type concret pour une abstraction ?",a:"Protocole quand polymorphisme nécessaire (mock, découplage, multiple implémentations). Type concret quand une seule implémentation existe. Commencer concret, abstraire quand testabilité ou flexibilité l'exige."}
+],traps:"Protocoles pour chaque type sans besoin réel — over-abstraction.\nany par défaut au lieu de some — perte de performance sans raison.\nSelf requirement empêche l'usage comme existential — comprendre la contrainte."},
+
+enums:{
+concept:"Les enums Swift sont des types algébriques avec associated values typées, pattern matching exhaustif, raw values, et récursivité (indirect). Conformance naturelle à Codable, CaseIterable, RawRepresentable. Le pattern matching via switch/if case let est central en Swift idiomatique.",
+code:`enum LoadingState<T: Sendable>: Sendable {\n    case idle, loading\n    case loaded(T)\n    case failed(Error)\n\n    var value: T? {\n        if case .loaded(let v) = self { return v }\n        return nil\n    }\n}\n\n// Pattern matching avancé\nfunc handle(_ state: LoadingState<[Item]>) {\n    switch state {\n    case .loaded(let items) where items.isEmpty:\n        showEmptyState()\n    case .loaded(let items):\n        showItems(items)\n    case .failed(let error as URLError):\n        showNetworkError(error)\n    case .failed:\n        showGenericError()\n    case .idle, .loading:\n        break\n    }\n}`,
+questions:[
+{q:"Enum vs struct avec booléens pour les états ?",a:"Enum quand les états sont mutuellement exclusifs avec données différentes par état. Un struct avec optionals crée des états impossibles (isLoading && error != nil). L'enum empêche ces incohérences par design et le compilateur force l'exhaustivité."},
+{q:"Comment rendre un enum à associated values Codable ?",a:"Depuis Swift 5.5, synthèse automatique si tous les associated types sont Codable. Le JSON utilise un discriminant. Pour un format custom, implémenter init(from:) et encode(to:) manuellement avec CodingKeys."},
+{q:"indirect enum — quand et pourquoi ?",a:"Permet à un case de contenir le même type d'enum (arbres, listes chaînées, AST). Sans indirect, taille infinie. indirect place la valeur sur le heap via pointeur."}
+],traps:"Structs + booléens au lieu d'enum pour états mutuellement exclusifs.\nCaseIterable ne fonctionne pas avec associated values.\ndefault dans switch sur enum supprime l'avertissement à l'ajout de nouveaux cases."},
+
+closures:{
+concept:"Les closures capturent les variables par référence forte par défaut. Les capture lists ([weak self], [unowned self]) contrôlent la sémantique. @escaping indique une closure qui survit au scope de la fonction. @autoclosure transforme une expression en closure paresseuse. En Swift 6, @Sendable interdit la capture de state mutable non-Sendable.",
+code:`class SearchViewModel {\n    private var searchTask: Task<Void, Never>?\n\n    // @escaping: survit à la fonction\n    func debounceSearch(\n        query: String,\n        completion: @escaping @Sendable ([String]) -> Void\n    ) {\n        searchTask?.cancel()\n        searchTask = Task { [weak self] in\n            try? await Task.sleep(for: .milliseconds(300))\n            guard !Task.isCancelled else { return }\n            guard let self else { return }\n            let results = await self.performSearch(query)\n            completion(results)\n        }\n    }\n\n    // @autoclosure pour API assertion-like\n    func require<T>(\n        _ value: @autoclosure () throws -> T?,\n        or error: @autoclosure () -> Error\n    ) rethrows -> T {\n        guard let result = try value() else { throw error() }\n        return result\n    }\n}`,
+questions:[
+{q:"Quand une closure est-elle @escaping ?",a:"Quand elle est stockée ou exécutée après le retour de la fonction (propriété, dispatch async, completion handler). Doit capturer self explicitement, risque de retain cycle. Les non-escaping sont optimisées (stack allocation)."},
+{q:"Capture par référence vs par valeur ?",a:"Par défaut, capture par référence — la closure voit les changements. Pour capturer par valeur (snapshot), utiliser une capture list : [x]. Crucial dans les boucles où on veut la valeur courante, pas la valeur finale."},
+{q:"@Sendable et closures en Swift 6 ?",a:"@Sendable garantit qu'une closure peut traverser les isolation domains. Interdit la capture de state mutable non-Sendable. Force [weak self] ou passage de valeurs Sendable, éliminant les data races à la compilation."}
+],traps:"Capturer self fortement dans @escaping stockée — retain cycle garanti.\n[unowned self] dans closure async imprévisible — crash si self désalloué.\n@Sendable interdit les variables mutables — repenser l'architecture."},
+
+optionals:{
+concept:"Les optionals sont des enums (some/none) forçant la gestion explicite de l'absence de valeur. Optional chaining propage nil. map/flatMap permettent des transformations fonctionnelles. Le force unwrap (!) doit être évité en production — préférer guard let, if let, ou nil-coalescing (??).",
+code:`struct UserProfile {\n    var name: String?\n    var email: String?\n    var address: Address?\n}\n\nstruct Address { var city: String?; var zipCode: String? }\n\n// flatMap évite le double optional\nfunc formattedLocation(for p: UserProfile) -> String {\n    p.address.flatMap { $0.city }\n        .map { city in\n            p.address?.zipCode.map { "\\(city) (\\($0))" } ?? city\n        } ?? "Localisation inconnue"\n}\n\n// Guard let pour early exit\nfunc processUser(_ p: UserProfile?) throws -> String {\n    guard let p else { throw ValidationError.missingProfile }\n    guard let name = p.name, !name.isEmpty else { throw ValidationError.missingName }\n    guard let email = p.email, email.contains("@") else { throw ValidationError.invalidEmail }\n    return "\\(name) <\\(email)>"\n}`,
+questions:[
+{q:"map vs flatMap sur Optional ?",a:"map: Optional<A>.map { A -> B } → Optional<B>. flatMap: Optional<A>.flatMap { A -> B? } → Optional<B> (aplatit le double optional). flatMap pour chaîner des opérations retournant chacune un optional."},
+{q:"Pourquoi éviter le force unwrap ?",a:"Crash non récupérable si nil, sans message utile. Alternatives : guard let, if let, ??, map/flatMap. Seuls cas : IBOutlets (legacy UIKit), tests unitaires, cas documentés où nil est impossible."},
+{q:"Implicitly Unwrapped Optional — quand ?",a:"Type! se décompresse automatiquement, crash si nil. Légitime : IBOutlets, initialisation en deux phases (viewDidLoad), interop ObjC. En SwiftUI pur, quasi inexistants."}
+],traps:"Force unwrap en production — source principale de crashs.\nChaîner trop d'optionals sans vérification — debugging difficile.\nOublier compactMap qui filtre nil ET décompresse."},
+
+errors:{
+concept:"Swift offre do-catch-throw avec typed throws (Swift 6) pour spécifier le type exact d'erreur. Result<Success, Failure> stocke des résultats faillibles. rethrows indique qu'une fonction ne throw que si sa closure throw. Never comme Failure indique l'infaillibilité.",
+code:`// Typed throws (Swift 6)\nenum NetworkError: Error, Sendable {\n    case noConnection\n    case timeout(seconds: Int)\n    case serverError(statusCode: Int)\n    case decodingFailed(underlying: Error)\n}\n\nfunc fetchUser(id: String) throws(NetworkError) -> User {\n    guard isConnected else { throw .noConnection }\n    let data = try await download(for: id)\n    do {\n        return try JSONDecoder().decode(User.self, from: data)\n    } catch { throw .decodingFailed(underlying: error) }\n}\n\n// rethrows — transparent\nfunc retry<T>(times: Int, op: () async throws -> T) async rethrows -> T {\n    for _ in 1..<times {\n        do { return try await op() } catch { continue }\n    }\n    return try await op()\n}`,
+questions:[
+{q:"Typed throws Swift 6 — avantages ?",a:"Le compilateur connaît le type exact, pas de downcast dans catch. Meilleure type safety, autocomplétion, exhaustivité. throws classique = throws(any Error)."},
+{q:"Result vs throws — quand utiliser quoi ?",a:"throws pour flux sync/async (idiomatique). Result pour stocker un résultat faillible (propriété, cache) ou le passer comme valeur. Avec async/await, throws remplace la majorité des usages de Result."},
+{q:"try vs try? vs try! ?",a:"try propage (do-catch). try? convertit en optional. try! crashe si erreur — jamais en production."}
+],traps:"catch générique sans distinguer erreurs récupérables vs fatales.\ntry! en production — même danger que force unwrap.\nNe pas profiter des typed throws quand disponibles."},
+
+collections:{
+concept:"Array, Dictionary, Set sont des types valeur avec Copy-on-Write. LazySequence chaîne des transformations sans allocations intermédiaires. Array.contains est O(n), Set.contains O(1). Les protocoles Sequence et Collection définissent l'itération. Custom Collection pour types optimisés.",
+code:`struct ItemStore {\n    private var items: [Item] = []\n\n    // Lazy: pas d'allocation intermédiaire\n    var expensiveItems: [String] {\n        items.lazy\n            .filter { $0.price > 100 }\n            .map(\\.name)\n            .sorted()\n    }\n\n    var byCategory: [String: [Item]] {\n        Dictionary(grouping: items, by: \\.category)\n    }\n\n    // Set pour lookup O(1)\n    private var favoriteIDs: Set<String> = []\n    func isFavorite(_ item: Item) -> Bool {\n        favoriteIDs.contains(item.id) // O(1)\n    }\n}\n\n// Custom Sequence\nstruct Fibonacci: Sequence, IteratorProtocol {\n    var current = 0, next = 1\n    mutating func next() -> Int? {\n        defer { (current, next) = (next, current + next) }\n        return current\n    }\n}`,
+questions:[
+{q:"Copy-on-Write — impact performance ?",a:"Les types valeur partagent leur buffer tant qu'un seul propriétaire. Copie réelle seulement lors de la première mutation avec références multiples. Passage par valeur quasi-gratuit en lecture."},
+{q:"Sequence vs Collection ?",a:"Sequence : itération one-shot, potentiellement infinie. Collection : accès par index, count O(1), itération multiple. Array/Dict/Set sont Collections. Un flux réseau pourrait être Sequence mais pas Collection."},
+{q:"Quand utiliser lazy ?",a:"Chaîner filter/map sur grandes collections sans consommer tous les éléments. Évite les allocations intermédiaires. Pièges : recalcule à chaque accès, sorted() force la matérialisation."}
+],traps:"Array.contains au lieu de Set.contains pour lookups fréquents — O(n) vs O(1).\nfilter + map sans lazy sur grandes collections — arrays intermédiaires inutiles.\nDict subscript retourne Optional — dict[key] ?? default, pas force unwrap."},
+
+// ===== WEEK 2 =====
+async:{
+concept:"async/await permet de suspendre l'exécution aux points await sans bloquer le thread. Task crée un contexte concurrent. Les suspension points sont où l'exécution peut être interrompue — le code entre deux await est atomique sur le même executor. async let lance des opérations en parallèle.",
+code:`@MainActor @Observable\nclass ArticleViewModel {\n    var articles: [Article] = []\n    var isLoading = false\n    private let repository: any ArticleRepository\n\n    init(repository: any ArticleRepository) {\n        self.repository = repository\n    }\n\n    func load() async {\n        isLoading = true\n        defer { isLoading = false }\n        articles = (try? await repository.fetchAll()) ?? []\n    }\n\n    // Parallélisme avec async let\n    func loadDashboard() async throws -> Dashboard {\n        async let articles = repository.fetchAll()\n        async let stats = repository.fetchStats()\n        async let user = repository.fetchCurrentUser()\n        return try await Dashboard(articles: articles, stats: stats, user: user)\n    }\n}`,
+questions:[
+{q:"Que se passe-t-il à un await ?",a:"La fonction libère son thread. Le runtime peut le réutiliser. La reprise peut se faire sur un thread différent. Les mutations autour d'un await sont dangereuses sans actor. Le code entre deux await est garanti sans interruption."},
+{q:"async let vs await séquentiel ?",a:"Séquentiel : durée = A + B. async let : durée = max(A, B). async let crée des child tasks en structured concurrency. Si une échoue, les autres sont annulées automatiquement."},
+{q:"Gestion de l'annulation ?",a:"Annulation coopérative : Task.isCancelled (bool), try Task.checkCancellation() (throw). Les API système respectent déjà la cancellation. task.cancel() signale mais n'interrompt pas."}
+],traps:"Le thread peut changer après await — pas de garantie sans @MainActor.\nNe pas vérifier l'annulation dans les boucles async.\nCréer des Task {} sans les stocker — impossible d'annuler."},
+
+actors:{
+concept:"Les actors protègent leur état mutable par isolation — un seul accès à la fois. L'accès externe nécessite await (mailbox). nonisolated marque les membres sans accès à l'état mutable. Les global actors (@MainActor) étendent l'isolation à des types entiers. La reentrancy est le piège principal.",
+code:`actor ImageCache {\n    private var cache: [URL: Data] = [:]\n    private var inFlight: [URL: Task<Data, Error>] = [:]\n\n    func image(for url: URL) async throws -> Data {\n        if let cached = cache[url] { return cached }\n        if let existing = inFlight[url] {\n            return try await existing.value\n        }\n\n        let task = Task {\n            let (data, _) = try await URLSession.shared.data(from: url)\n            return data\n        }\n        inFlight[url] = task\n\n        // REENTRANCY: l'état peut changer ici\n        let data = try await task.value\n        cache[url] = data\n        inFlight[url] = nil\n        return data\n    }\n\n    nonisolated func cacheKey(for url: URL) -> String {\n        url.absoluteString\n    }\n}`,
+questions:[
+{q:"Qu'est-ce que l'actor reentrancy ?",a:"À chaque await dans un actor, d'autres messages de la mailbox peuvent s'exécuter. L'état peut changer entre le début et la fin d'un await. Solution : vérifier l'état après chaque await, utiliser des patterns comme le dictionnaire inFlight."},
+{q:"Actor vs classe + dispatch queue ?",a:"Actors : vérification compile-time, intégration async/await native, Sendable checking. DispatchQueue : runtime-only, legacy, interop ObjC. Actors préférés depuis Swift 5.5+."},
+{q:"@MainActor dans l'architecture SwiftUI ?",a:"ViewModels @MainActor @Observable. Views implicitement MainActor. Data layer nonisolated ou actors dédiés. La boundary async entre ViewModel et repository se fait avec await."}
+],traps:"Ignorer la reentrancy — supposer que l'état ne change pas pendant un await.\n@MainActor sur tout le code — force tout sur le main thread.\nAccès à un actor toujours async depuis l'extérieur — même une simple propriété."},
+
+structured:{
+concept:"La structured concurrency garantit que les child tasks ne survivent jamais à leur parent. TaskGroup lance dynamiquement des child tasks parallèles. withThrowingTaskGroup annule automatiquement les restantes quand une échoue. async let est le cas fixe, TaskGroup le cas dynamique.",
+code:`func fetchAllPages<T: Decodable & Sendable>(\n    urls: [URL], as type: T.Type\n) async throws -> [T] {\n    try await withThrowingTaskGroup(of: (Int, T).self) { group in\n        for (i, url) in urls.enumerated() {\n            group.addTask {\n                let (data, _) = try await URLSession.shared.data(from: url)\n                return (i, try JSONDecoder().decode(T.self, from: data))\n            }\n        }\n        var results = [(Int, T)]()\n        for try await result in group { results.append(result) }\n        return results.sorted { $0.0 < $1.0 }.map(\\.1)\n    }\n}\n\n// Timeout par race\nfunc withTimeout<T: Sendable>(\n    _ duration: Duration,\n    op: @Sendable () async throws -> T\n) async throws -> T {\n    try await withThrowingTaskGroup(of: T.self) { group in\n        group.addTask { try await op() }\n        group.addTask { try await Task.sleep(for: duration); throw CancellationError() }\n        let result = try await group.next()!\n        group.cancelAll()\n        return result\n    }\n}`,
+questions:[
+{q:"Structured vs unstructured concurrency ?",a:"Structured (async let, TaskGroup) : child tasks liées au scope parent, annulation automatique. Unstructured (Task {}, Task.detached) : indépendantes, survivent au scope. Structured préféré pour le cleanup garanti."},
+{q:"Comment limiter le parallélisme ?",a:"Lancer N tasks initiales, puis pour chaque terminée, en lancer une nouvelle. Maintient un pool de N tasks actives. Pas de maxConcurrency natif dans TaskGroup."},
+{q:"Que se passe-t-il quand une child task throw ?",a:"Le groupe annule toutes les child tasks restantes. La boucle for try await s'arrête et l'erreur est propagée. Les tasks déjà terminées ne sont pas affectées."}
+],traps:"Résultats TaskGroup arrivent dans le désordre — indexer si l'ordre compte.\nPas de limite de parallélisme — 1000 tasks simultanées saturent le thread pool.\nTask.detached au lieu de TaskGroup — perte d'annulation automatique."},
+
+sendable:{
+concept:"Sendable garantit qu'une valeur traverse les isolation domains sans data race. Types valeur immuables = Sendable automatique. Classes : final + let uniquement. @unchecked Sendable pour protection manuelle (locks). @Sendable marque les closures traversant les boundaries. transferring transfère la propriété d'une valeur non-Sendable.",
+code:`// Automatiquement Sendable\nstruct UserDTO: Sendable, Codable {\n    let id: String\n    let name: String\n}\n\n// Classe Sendable — final + let\nfinal class AppConfig: Sendable {\n    let apiURL: URL\n    let timeout: TimeInterval\n    init(apiURL: URL, timeout: TimeInterval) {\n        self.apiURL = apiURL; self.timeout = timeout\n    }\n}\n\n// @unchecked Sendable — protection manuelle\nfinal class ThreadSafeCounter: @unchecked Sendable {\n    private let lock = NSLock()\n    private var _count = 0\n    var count: Int { lock.withLock { _count } }\n    func increment() { lock.withLock { _count += 1 } }\n}\n\n// Task capture @Sendable\nfunc fetchUser(id: String) {\n    Task { @MainActor in\n        let user = try await api.getUser(id: id)\n        self.currentUser = user\n    }\n}`,
+questions:[
+{q:"Quand utiliser @unchecked Sendable ?",a:"Types protégés manuellement (locks, dispatch queues) ou types C/ObjC thread-safe non vérifiables. Risque : data races non détectées si protection incorrecte. Minimiser son usage."},
+{q:"Rendre une classe existante Sendable ?",a:"Par ordre : 1) Propriétés let + final. 2) Convertir en struct. 3) Convertir en actor. 4) @unchecked Sendable + locks. 5) Actor wrapper pour types legacy."},
+{q:"transferring en Swift 6 ?",a:"Permet de passer une valeur non-Sendable entre isolation domains en transférant la propriété. Le compilateur vérifie que l'appelant n'utilise plus la valeur après transfert. Plus sûr que @unchecked Sendable."}
+],traps:"@unchecked Sendable pour faire taire le compilateur sans vraie protection.\nClosures Task doivent être @Sendable — pas de capture mutable.\nSendable sur classe avec var — ne compile pas en Swift 6 strict."},
+
+mainactor:{
+concept:"@MainActor isole sur le main thread — obligatoire pour les mutations d'UI. ViewModels @Observable doivent être @MainActor. La frontière entre MainActor (UI) et nonisolated (data layer) est le point clé de l'architecture.",
+code:`@MainActor @Observable\nclass ProductListViewModel {\n    var products: [Product] = []\n    var isLoading = false\n    var error: AppError?\n    private let repository: any ProductRepository\n\n    init(repository: any ProductRepository) {\n        self.repository = repository\n    }\n\n    func refresh() async {\n        isLoading = true\n        defer { isLoading = false }\n        do {\n            // Franchit MainActor → nonisolated\n            products = try await repository.fetchAll()\n        } catch { self.error = .from(error) }\n    }\n\n    func delete(_ product: Product) async {\n        do {\n            try await repository.delete(product.id)\n            products.removeAll { $0.id == product.id }\n        } catch { self.error = .from(error) }\n    }\n}\n\nprotocol ProductRepository: Sendable {\n    func fetchAll() async throws -> [Product]\n    func delete(_ id: String) async throws\n}`,
+questions:[
+{q:"Pourquoi @MainActor sur les ViewModels ?",a:"SwiftUI observe depuis body (MainActor). Sans @MainActor, mutation depuis un autre thread = data race. En Swift 6 strict, c'est une erreur de compilation."},
+{q:"Frontière MainActor / nonisolated ?",a:"ViewModel (@MainActor) → await → Repository (nonisolated, Sendable) → Network/DB. Les DTOs qui traversent doivent être Sendable. Jamais @MainActor sur le data layer."},
+{q:"MainActor.run — quand ?",a:"Depuis un contexte nonisolated pour exécuter sur le main thread. Mais c'est un code smell — si fréquent, l'architecture est mal découpée."}
+],traps:"@MainActor sur le data layer — freeze d'UI.\nDispatchQueue.main.async inutile dans un ViewModel @MainActor.\nMainActor.run partout — signe de mauvaise architecture."},
+
+taskgroups:{
+concept:"Patterns avancés de TaskGroup : limitation de concurrence (pool pattern), gestion d'erreurs partielles (Result dans le group), race pattern pour timeout, et itération asynchrone des résultats.",
+code:`// Pool de concurrence limitée\nfunc processImages(_ images: [UIImage]) async -> [UIImage] {\n    await withTaskGroup(of: (Int, UIImage).self) { group in\n        let max = ProcessInfo.processInfo.activeProcessorCount\n        var idx = 0; var results = [(Int, UIImage)]()\n\n        for _ in 0..<min(max, images.count) {\n            let i = idx; group.addTask { (i, await self.resize(images[i])) }\n            idx += 1\n        }\n\n        for await result in group {\n            results.append(result)\n            if idx < images.count {\n                let i = idx; group.addTask { (i, await self.resize(images[i])) }\n                idx += 1\n            }\n        }\n        return results.sorted { $0.0 < $1.0 }.map(\\.1)\n    }\n}\n\n// Erreurs partielles\nfunc fetchTolerant(urls: [URL]) async -> [Result<Data, Error>] {\n    await withTaskGroup(of: Result<Data, Error>.self) { group in\n        for url in urls {\n            group.addTask {\n                do { let (d,_) = try await URLSession.shared.data(from: url); return .success(d) }\n                catch { return .failure(error) }\n            }\n        }\n        return await group.reduce(into: []) { $0.append($1) }\n    }\n}`,
+questions:[
+{q:"Timeout avec TaskGroup ?",a:"Lancer l'opération + Task.sleep dans le même groupe. Le premier résultat gagne. cancelAll() pour annuler le perdant. Pattern de \"race\" idiomatique."},
+{q:"TaskGroup vs DispatchGroup ?",a:"TaskGroup : structured, vérifié à la compilation, cancellation auto. DispatchGroup : unstructured, runtime-only, notify/wait manuels. TaskGroup est le remplacement moderne."},
+{q:"Erreurs partielles dans TaskGroup ?",a:"withTaskGroup (non-throwing) avec Result comme type de retour. Chaque child task retourne .success ou .failure. Filtrer les succès et logger les échecs séparément."}
+],traps:"addTask après for try await ne s'exécute pas si erreur thrown.\nPas de limite de concurrence — saturation du thread pool.\nRésultats dans l'ordre de complétion, pas d'insertion."},
+
+continuations:{
+concept:"Les continuations bridgent le code callback/delegate vers async/await. withCheckedContinuation wrappe une API callback. La continuation doit être appelée exactement une fois — plus crashe, jamais = leak. AsyncStream pour les flux continus (vs one-shot).",
+code:`// Bridge delegate → async\nclass LocationManager {\n    private let manager = CLLocationManager()\n    private var continuation: CheckedContinuation<CLLocation, Error>?\n\n    func requestLocation() async throws -> CLLocation {\n        try await withCheckedThrowingContinuation { cont in\n            self.continuation = cont\n            manager.requestLocation()\n        }\n    }\n}\n\nextension LocationManager: CLLocationManagerDelegate {\n    func locationManager(_ m: CLLocationManager, didUpdateLocations l: [CLLocation]) {\n        continuation?.resume(returning: l[0])\n        continuation = nil\n    }\n    func locationManager(_ m: CLLocationManager, didFailWithError e: Error) {\n        continuation?.resume(throwing: e)\n        continuation = nil\n    }\n}\n\n// AsyncStream pour flux continus\nfunc notifications(named n: Notification.Name) -> AsyncStream<Notification> {\n    AsyncStream { cont in\n        let obs = NotificationCenter.default.addObserver(forName: n, object: nil, queue: .main) {\n            cont.yield($0)\n        }\n        cont.onTermination = { _ in NotificationCenter.default.removeObserver(obs) }\n    }\n}`,
+questions:[
+{q:"Double resume sur une continuation ?",a:"Checked : crash explicite. Unsafe : undefined behavior. Pattern de nil-out après resume empêche les doubles appels."},
+{q:"Callback jamais appelé ?",a:"La task est leaked — attend indéfiniment. Solutions : timeout externe, ou deinit/cleanup qui resume avec erreur."},
+{q:"AsyncStream vs continuation ?",a:"Continuation pour one-shot. AsyncStream pour flux continus (delegate émettant plusieurs valeurs). yield pour émettre, finish pour terminer."}
+],traps:"Resume deux fois — crash garanti.\nJamais resume — task leaked pour toujours.\nStocker la continuation sans nil-out — double appel possible."},
+
+combinevs:{
+concept:"Combine et async/await coexistent. AsyncSequence remplace Publisher pour les flux. AsyncStream crée des séquences async custom. Combine reste pertinent pour les opérateurs avancés (debounce, combineLatest). async/await est la direction future.",
+code:`// AVANT: Combine + ObservableObject\nclass OldVM: ObservableObject {\n    @Published var query = ""\n    @Published var results: [Item] = []\n    private var cancellables = Set<AnyCancellable>()\n    init() {\n        $query.debounce(for: .milliseconds(300), scheduler: RunLoop.main)\n            .removeDuplicates()\n            .flatMap { self.search($0) }\n            .assign(to: &$results)\n    }\n}\n\n// APRÈS: async/await + @Observable\n@MainActor @Observable\nclass SearchViewModel {\n    var query = "" { didSet { searchTask?.cancel(); startSearch() } }\n    var results: [Item] = []\n    private var searchTask: Task<Void, Never>?\n\n    private func startSearch() {\n        searchTask = Task {\n            try? await Task.sleep(for: .milliseconds(300))\n            guard !Task.isCancelled else { return }\n            results = (try? await api.search(query)) ?? []\n        }\n    }\n}\n\n// AsyncStream pour flux continus\nfunc notifications(named n: Notification.Name) -> AsyncStream<Notification> {\n    AsyncStream { cont in\n        let obs = NotificationCenter.default.addObserver(forName: n, object: nil, queue: .main) { cont.yield($0) }\n        cont.onTermination = { _ in NotificationCenter.default.removeObserver(obs) }\n    }\n}`,
+questions:[
+{q:"Quand garder Combine ?",a:"Opérateurs complexes sans équivalent simple (combineLatest, merge, zip, debounce chaîné), codebase fortement couplé, bindings UI réactifs complexes. async/await pour one-shot et nouveaux projets."},
+{q:"Debounce sans Combine ?",a:"task?.cancel(); task = Task { try? await Task.sleep(for: .milliseconds(300)); guard !Task.isCancelled else { return }; await doWork() }. Plus explicite mais moins composable."},
+{q:"AsyncStream vs AsyncThrowingStream ?",a:"AsyncStream ne throw pas. AsyncThrowingStream peut throw à l'itération. Utiliser Throwing quand le flux peut échouer (network)."}
+],traps:"Migrer tout Combine d'un coup — risque de régression.\nPas de cancel dans le pattern debounce — toutes les Tasks s'exécutent.\nonTermination manquant dans AsyncStream — leak d'observers."},
+
+// ===== WEEK 3 =====
+mvvm:{
+concept:"MVVM + Clean Architecture sépare en : Presentation (View + ViewModel), Domain (Use Cases, Entities, Repository protocols), Data (implémentations, DTOs, Network). Le ViewModel orchestre les Use Cases. L'injection par protocole découple et rend testable.",
+code:`// DOMAIN\nstruct Product: Identifiable, Sendable {\n    let id: String; var name: String; var price: Decimal\n}\n\nprotocol ProductRepository: Sendable {\n    func fetchAll() async throws -> [Product]\n    func save(_ product: Product) async throws\n}\n\nstruct FetchProductsUseCase: Sendable {\n    private let repository: any ProductRepository\n    init(repository: any ProductRepository) { self.repository = repository }\n    func execute() async throws -> [Product] {\n        try await repository.fetchAll().sorted { $0.name < $1.name }\n    }\n}\n\n// PRESENTATION\n@MainActor @Observable\nclass ProductListViewModel {\n    var products: [Product] = []\n    var isLoading = false\n    private let fetchProducts: FetchProductsUseCase\n    init(fetchProducts: FetchProductsUseCase) { self.fetchProducts = fetchProducts }\n    func load() async {\n        isLoading = true; defer { isLoading = false }\n        products = (try? await fetchProducts.execute()) ?? []\n    }\n}\n\n// DATA\nstruct RemoteProductRepository: ProductRepository {\n    let client: any HTTPClient\n    func fetchAll() async throws -> [Product] {\n        let dtos: [ProductDTO] = try await client.get("/products")\n        return dtos.map { $0.toDomain() }\n    }\n}`,
+questions:[
+{q:"Pourquoi des Use Cases séparés ?",a:"Logique métier réutilisable (plusieurs VMs), testable unitairement, intention claire (1 Use Case = 1 action). Sans eux, les ViewModels grossissent et la logique est dupliquée."},
+{q:"DI en SwiftUI sans framework ?",a:"Constructor injection pour ViewModels. @Environment pour dépendances transversales. Pas de singleton sauf le DI container. Factory pattern pour les cas complexes."},
+{q:"Quand la Clean Architecture est-elle over-engineering ?",a:"Apps < 10 écrans avec logique simple. L'overhead ne se justifie que quand le data layer est complexe, la logique métier significative, ou la testabilité critique."}
+],traps:"ViewModel appelant URLSession directement — pas testable.\nProtocoles avec une seule implémentation \"au cas où\" — over-abstraction.\nExposer les DTOs réseau dans les Views — couplage UI/API."},
+
+swiftuilife:{
+concept:"SwiftUI est déclaratif — le framework contrôle le lifecycle. La View identity (structurelle ou .id()) détermine création vs mise à jour. body est ré-évalué quand une dépendance @Observable change, avec tracking granulaire. @State est lié à l'identité de la View.",
+code:`struct ContentView: View {\n    @State private var selectedTab = 0\n    var body: some View {\n        TabView(selection: $selectedTab) {\n            HomeView().tag(0)\n            // .id() force une nouvelle identité = reset total\n            ProfileView().tag(1).id(selectedTab)\n        }\n    }\n}\n\nstruct HomeView: View {\n    @State private var viewModel = HomeViewModel()\n    var body: some View {\n        List(viewModel.items) { item in\n            ItemRow(item: item)\n        }\n        .overlay {\n            if viewModel.isLoading { ProgressView() }\n        }\n        .task { await viewModel.load() }\n    }\n}\n\n@MainActor @Observable\nclass HomeViewModel {\n    var items: [Item] = []\n    var isLoading = false\n    func load() async {\n        guard !isLoading else { return }\n        isLoading = true; defer { isLoading = false }\n        items = (try? await api.fetchItems()) ?? []\n    }\n}`,
+questions:[
+{q:"Observation tracking avec @Observable ?",a:"SwiftUI enregistre quelles propriétés sont lues dans body. Seule leur mutation déclenche un re-render. Plus efficace que @Published qui notifie pour TOUTE propriété."},
+{q:"@State avec @Observable vs @StateObject ?",a:"@State + @Observable : tracking granulaire par propriété. @StateObject + ObservableObject : objectWillChange global. @State possède le ViewModel tant que l'identité de la View ne change pas."},
+{q:".task vs .onAppear ?",a:".task : async-aware, annulé automatiquement quand la View disparaît, relancé avec .task(id:). .onAppear : synchrone, non annulable. Préférer .task pour le chargement async."}
+],traps:".id() reset tout l'état interne — @State, animations, scroll.\nViewModel en let au lieu de @State — recréé à chaque re-render parent.\nbody doit être pur et rapide — ré-évalué à chaque changement observé."},
+
+swiftdata:{
+concept:"SwiftData (iOS 17+) remplace Core Data. @Model pour les modèles, ModelContainer pour le storage, ModelContext pour le CRUD. #Predicate (type-safe), @Query (SwiftUI). Support migrations (VersionedSchema), relationships, CloudKit.",
+code:`import SwiftData\n\n@Model\nfinal class Expense {\n    var title: String\n    var amount: Decimal\n    var date: Date\n    var category: Category?\n    @Relationship(deleteRule: .cascade, inverse: \\Receipt.expense)\n    var receipts: [Receipt] = []\n    init(title: String, amount: Decimal, date: Date = .now) {\n        self.title = title; self.amount = amount; self.date = date\n    }\n}\n\nstruct ExpenseListView: View {\n    @Query(filter: #Predicate<Expense> { $0.amount > 0 },\n           sort: \\Expense.date, order: .reverse)\n    private var expenses: [Expense]\n    @Environment(\\.modelContext) private var context\n\n    var body: some View {\n        List(expenses) { expense in\n            ExpenseRow(expense: expense)\n                .swipeActions {\n                    Button(role: .destructive) { context.delete(expense) }\n                    label: { Label("Supprimer", systemImage: "trash") }\n                }\n        }\n    }\n}\n\n@main struct MyApp: App {\n    let container: ModelContainer\n    init() {\n        let schema = Schema([Expense.self, Receipt.self])\n        container = try! ModelContainer(for: schema,\n            configurations: [ModelConfiguration(cloudKitDatabase: .automatic)])\n    }\n    var body: some Scene {\n        WindowGroup { ContentView() }.modelContainer(container)\n    }\n}`,
+questions:[
+{q:"SwiftData vs Core Data — quand choisir ?",a:"SwiftData pour nouveaux projets iOS 17+. Core Data pour iOS < 17, projets existants, features avancées (NSFetchedResultsController, batch ops). Même moteur SQLite sous le capot."},
+{q:"Migrations de schéma ?",a:"VersionedSchema + SchemaMigrationPlan. Migrations légères automatiques (ajout propriété). Custom nécessite MigrationStage.custom. Tester avec stores de chaque version."},
+{q:"Sync CloudKit ?",a:"ModelConfiguration(cloudKitDatabase: .automatic). Sync automatique. Limitations : pas de requêtes CloudKit directes, relationships optionnelles pour merge."}
+],traps:"@Model = reference type mutable — context.save() si autosave désactivé.\n#Predicate ne supporte pas toutes les expressions Swift.\nMigration cassée = perte de données — tester avant release."},
+
+di:{
+concept:"DI en SwiftUI : constructor injection (init des ViewModels) + @Environment pour dépendances transversales. Protocol-based DI sans framework. Pas de singleton sauf le container DI racine.",
+code:`// Protocoles\nprotocol AuthService: Sendable {\n    func currentUser() async throws -> User?\n}\nprotocol AnalyticsService: Sendable {\n    func track(_ event: String, properties: [String: String])\n}\n\n// Container\n@MainActor\nstruct Dependencies {\n    let auth: any AuthService\n    let analytics: any AnalyticsService\n    let productRepo: any ProductRepository\n}\n\n// Environment Key\nstruct DepsKey: EnvironmentKey {\n    static let defaultValue = Dependencies(\n        auth: LiveAuthService(), analytics: LiveAnalytics(), productRepo: RemoteProductRepo()\n    )\n}\nextension EnvironmentValues {\n    var deps: Dependencies {\n        get { self[DepsKey.self] }\n        set { self[DepsKey.self] = newValue }\n    }\n}\n\n// Usage\nstruct ProductListView: View {\n    @Environment(\\.deps) private var deps\n    @State private var vm: ProductListViewModel?\n    var body: some View {\n        Group { if let vm { ProductList(viewModel: vm) } }\n            .task {\n                vm = ProductListViewModel(fetchProducts: FetchProductsUseCase(repository: deps.productRepo))\n                await vm?.load()\n            }\n    }\n}\n\n// Previews & Tests\n#Preview { ProductListView().environment(\\.deps, .mock) }`,
+questions:[
+{q:"Pourquoi éviter les singletons ?",a:"Couplage implicite, tests impossibles (pas de mock), dépendances cachées, problèmes de thread safety. Préférer l'injection explicite."},
+{q:"Constructor injection vs @Environment ?",a:"Constructor injection pour ViewModels (explicite, testable). @Environment pour dépendances transversales (theme, auth, DI container)."},
+{q:"Previews fonctionnelles avec DI ?",a:"Extension .mock sur le container avec implémentations stub. .environment(\\.deps, .mock) dans les #Preview."}
+],traps:"Singletons dans les ViewModels — pas testable.\nProtocole pour chaque type sans besoin de mock — over-abstraction.\nTrop de dépendances dans un ViewModel — le découper en Use Cases."},
+
+navigation:{
+concept:"NavigationStack (iOS 16+) avec navigation programmatique type-safe. NavigationPath pour le stack. Deep links via manipulation du path. Coordinator pattern encapsule la logique de routing.",
+code:`enum Route: Hashable {\n    case productDetail(Product.ID)\n    case cart, checkout\n    case orderConfirmation(Order.ID)\n}\n\n@MainActor @Observable\nclass NavCoordinator {\n    var path = NavigationPath()\n    func push(_ route: Route) { path.append(route) }\n    func popToRoot() { path = NavigationPath() }\n    func handle(url: URL) {\n        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false),\n              let id = components.queryItems?.first(where: { $0.name == "id" })?.value\n        else { return }\n        popToRoot()\n        push(.productDetail(id))\n    }\n}\n\nstruct RootView: View {\n    @State private var coordinator = NavCoordinator()\n    var body: some View {\n        NavigationStack(path: $coordinator.path) {\n            ProductListView()\n                .navigationDestination(for: Route.self) { route in\n                    switch route {\n                    case .productDetail(let id): ProductDetailView(productId: id)\n                    case .cart: CartView()\n                    case .checkout: CheckoutView()\n                    case .orderConfirmation(let id): OrderConfirmationView(orderId: id)\n                    }\n                }\n        }\n        .environment(coordinator)\n        .onOpenURL { coordinator.handle(url: $0) }\n    }\n}`,
+questions:[
+{q:"NavigationStack vs NavigationView ?",a:"NavigationStack : programmatique, type-safe, deep links natifs, pas de bugs NavigationView. NavigationView deprecated iOS 16."},
+{q:"Deep links avec NavigationStack ?",a:"Parser URL en Route(s), vider le path (popToRoot), pousser la séquence. .onOpenURL capte les URL schemes et universal links."},
+{q:"Coordinator pattern en SwiftUI ?",a:"@Observable encapsulant NavigationPath et logique de routing. Centralise transitions, facilite deep links. Pour apps simples, NavigationLink direct suffit."}
+],traps:"State non-Hashable dans NavigationPath — crash.\nNavigationLink(destination:) au lieu de navigationDestination(for:).\nPas de state restoration — path perdu au kill de l'app."},
+
+testing:{
+concept:"Swift Testing (Xcode 16+) : @Test, @Suite, #expect, #require, parameterized tests. Mocks par protocoles. Tests async-native. Viser 85%+ couverture sur ViewModels et Use Cases.",
+code:`import Testing\n\nstruct MockProductRepo: ProductRepository {\n    var products: [Product] = []\n    var shouldFail = false\n    func fetchAll() async throws -> [Product] {\n        if shouldFail { throw TestError.simulated }\n        return products\n    }\n    func save(_ p: Product) async throws {\n        if shouldFail { throw TestError.simulated }\n    }\n}\n\n@Suite("ProductListViewModel")\nstruct ProductListVMTests {\n    @Test("Charge et trie les produits")\n    @MainActor\n    func loadProducts() async {\n        var repo = MockProductRepo()\n        repo.products = [\n            Product(id: "1", name: "Banane", price: 1.50),\n            Product(id: "2", name: "Abricot", price: 2.00)\n        ]\n        let vm = ProductListViewModel(\n            fetchProducts: FetchProductsUseCase(repository: repo)\n        )\n        await vm.load()\n        #expect(vm.products.count == 2)\n        #expect(vm.products[0].name == "Abricot")\n        #expect(!vm.isLoading)\n    }\n\n    @Test("Validation prix", arguments: [\n        (0.0, false), (1.0, true), (-5.0, false)\n    ])\n    func priceValidation(price: Double, isValid: Bool) {\n        #expect(Product.isValidPrice(Decimal(price)) == isValid)\n    }\n}`,
+questions:[
+{q:"Swift Testing vs XCTest ?",a:"@Test (pas de préfixe test), #expect (pas de XCTAssert), @Suite, parameterized tests natifs, async par défaut. Coexistent dans le même target — migration progressive."},
+{q:"Tester un ViewModel @MainActor ?",a:"Marquer le test @MainActor. Injecter mocks via protocoles. Appeler avec await. Vérifier état ET effets secondaires."},
+{q:"Tester les Views SwiftUI ?",a:"Tests unitaires exhaustifs des ViewModels. Snapshot tests optionnels pour régressions visuelles. XCUITest pour parcours critiques end-to-end. La logique doit être dans le ViewModel."}
+],traps:"Tester l'implémentation au lieu du comportement — fragile au refactoring.\n@MainActor oublié sur les tests de ViewModels @Observable.\nPas de mocks sur dépendances externes — tests lents et fragiles."},
+
+accessibility:{
+concept:"VoiceOver (lecteur d'écran), Dynamic Type (tailles de texte), interactions adaptatives. Chaque élément interactif : accessibilityLabel, accessibilityHint, accessibilityTraits. Dynamic Type automatique avec text styles système. But : 100% utilisable sans vision.",
+code:`struct ProductCard: View {\n    let product: Product\n    let onAddToCart: () -> Void\n\n    var body: some View {\n        VStack(alignment: .leading, spacing: 8) {\n            AsyncImage(url: product.imageURL) { image in\n                image.resizable().aspectRatio(contentMode: .fill)\n            } placeholder: { Color.gray.opacity(0.2) }\n            .frame(height: 200).clipped()\n            .accessibilityLabel("Photo de \\(product.name)")\n\n            Text(product.name).font(.headline)\n            Text(product.price, format: .currency(code: "EUR"))\n                .font(.subheadline).foregroundStyle(.secondary)\n\n            Button(action: onAddToCart) {\n                Label("Ajouter au panier", systemImage: "cart.badge.plus")\n                    .frame(maxWidth: .infinity)\n            }\n            .buttonStyle(.borderedProminent)\n            .accessibilityLabel("Ajouter \\(product.name) au panier")\n            .accessibilityHint("Ajoute cet article à votre panier")\n        }\n        .accessibilityElement(children: .combine)\n    }\n}\n\n// Adaptive layout pour Dynamic Type\nstruct AdaptiveLayout: View {\n    @Environment(\\.dynamicTypeSize) var typeSize\n    var body: some View {\n        if typeSize >= .accessibility1 {\n            VStack(alignment: .leading) { content }\n        } else { HStack { content } }\n    }\n    @ViewBuilder var content: some View {\n        Image(systemName: "star.fill"); Text("Favoris")\n    }\n}`,
+questions:[
+{q:"Modifiers d'accessibilité essentiels ?",a:"accessibilityLabel (nom), accessibilityHint (action), accessibilityTraits (.isButton, .isHeader), accessibilityValue (slider/toggle), accessibilityElement(children: .combine/.ignore)."},
+{q:"Comment tester l'accessibilité ?",a:"Accessibility Inspector (Xcode), VoiceOver réel sur device, Dynamic Type xxxLarge dans Settings, Reduce Motion. XCUITest peut vérifier les labels."},
+{q:"Dynamic Type — layouts qui cassent ?",a:"@Environment(\\.dynamicTypeSize) pour adapter HStack → VStack. Éviter hauteurs fixes. .minimumScaleFactor() en dernier recours. Tester avec accessibility sizes."}
+],traps:"accessibilityLabel manquant sur boutons icône — VoiceOver dit juste \"button\".\nTailles de police fixes au lieu de text styles — Dynamic Type ignoré.\naccessibilityElement(children: .combine) manquant — expérience fragmentée."},
+
+observable:{
+concept:"@Observable (iOS 17+) remplace ObservableObject avec tracking granulaire par propriété. @Bindable crée des bindings. @Entry simplifie les Environment keys. Pattern : @MainActor @Observable pour ViewModels, @State dans la View.",
+code:`@MainActor @Observable\nclass SettingsViewModel {\n    var username = ""\n    var email = ""\n    var isDarkMode = false\n    var notificationsEnabled = true\n\n    var isFormValid: Bool {\n        !username.isEmpty && email.contains("@")\n    }\n\n    func save() async throws {\n        guard isFormValid else { return }\n        try await settingsService.update(username: username, email: email)\n    }\n\n    private let settingsService: any SettingsService\n    init(settingsService: any SettingsService) {\n        self.settingsService = settingsService\n    }\n}\n\nstruct SettingsView: View {\n    @State private var viewModel = SettingsViewModel(settingsService: LiveSettingsService())\n    var body: some View {\n        @Bindable var vm = viewModel\n        Form {\n            Section("Profil") {\n                TextField("Nom", text: $vm.username)\n                TextField("Email", text: $vm.email)\n            }\n            Section("Préférences") {\n                Toggle("Mode sombre", isOn: $vm.isDarkMode)\n            }\n            Button("Sauvegarder") {\n                Task { try? await viewModel.save() }\n            }.disabled(!viewModel.isFormValid)\n        }\n    }\n}\n\nextension EnvironmentValues {\n    @Entry var appTheme: AppTheme = .system\n}`,
+questions:[
+{q:"@Observable vs ObservableObject ?",a:"@Observable : tracking granulaire (seules les propriétés lues dans body déclenchent re-render), pas de @Published, pas de Combine. ObservableObject : objectWillChange global. @Observable réduit significativement les re-renders."},
+{q:"@Bindable — quand ?",a:"Pour créer des $ bindings vers @Observable. Nécessaire pour TextField, Toggle, Slider. Se déclare dans body : @Bindable var vm = viewModel."},
+{q:"Migration ObservableObject → @Observable ?",a:"1) @Observable class. 2) Supprimer @Published. 3) @State au lieu de @StateObject. 4) @Bindable si besoin de bindings. ViewModel par ViewModel."}
+],traps:"@ObservedObject avec @Observable — incompatible.\nViewModel en let au lieu de @State — recréé à chaque re-render.\n@Bindable oublié quand $ bindings nécessaires."},
+
+// ===== WEEK 4 =====
+sysdesign:{
+concept:"System design iOS : offline-first (fonctionner sans réseau, sync quand disponible), modularisation (SPM feature modules), stratégies de sync (CRDT, last-write-wins), et scalabilité du codebase. En entretien, dessiner l'architecture complète : couches, flux de données, gestion d'erreurs.",
+code:`// Architecture offline-first\n@MainActor @Observable\nclass SyncManager {\n    var syncState: SyncState = .idle\n    private let local: any LocalStore\n    private let remote: any RemoteAPI\n    private let monitor: NWPathMonitor\n\n    func save(_ item: Item) async throws {\n        // 1. Sauvegarder localement d'abord (toujours)\n        try await local.save(item)\n        // 2. Tenter la sync si réseau disponible\n        if monitor.currentPath.status == .satisfied {\n            try? await remote.push(item)\n        } else {\n            try await local.markPendingSync(item.id)\n        }\n    }\n\n    func syncPending() async {\n        syncState = .syncing\n        let pending = try? await local.pendingItems()\n        for item in pending ?? [] {\n            do {\n                try await remote.push(item)\n                try await local.clearPendingSync(item.id)\n            } catch { break }\n        }\n        syncState = .idle\n    }\n}\n\n// Modularisation SPM\n// Package.swift structure:\n// - CoreModule (entities, protocols)\n// - NetworkModule (API client)\n// - PersistenceModule (SwiftData)\n// - FeatureHome (HomeView, HomeViewModel)\n// - FeatureSettings (SettingsView, SettingsViewModel)\n// - App (composition root)`,
+questions:[
+{q:"Comment designer une app offline-first ?",a:"Source of truth = local DB. Toute écriture va d'abord en local, puis sync en background. Queue de pending changes. Conflict resolution strategy (last-write-wins ou merge). NWPathMonitor pour détecter la connectivité. UI réactive via @Query ou observation du local store."},
+{q:"Modularisation — comment découper ?",a:"Par feature (vertical) + par couche technique (horizontal). Core module (entities, protocols). Feature modules (view + viewmodel + use cases). Shared modules (network, persistence, design system). SPM pour les dépendances. Avantage : builds incrémentaux, ownership clair, testabilité."},
+{q:"Comment gérer les conflits de synchronisation ?",a:"Last-write-wins : simple, perte potentielle de données. Merge : complexe mais préserve les changements. CRDT : convergence automatique sans conflit. Choix selon le cas : LWW pour les settings, merge pour les documents collaboratifs, CRDT pour les compteurs/sets."}
+],traps:"Supposer la connectivité — toujours designer offline-first.\nMonolithe Feature Module — trop gros module = même problème qu'un monolithe.\nPas de conflict resolution strategy — corruptions silencieuses."},
+
+networking:{
+concept:"Couche réseau avancée : URLSession avec async/await, interceptors (auth token, logging), retry avec exponential backoff, certificate pinning, et gestion des erreurs réseau. L'abstraction via protocole permet le mock en tests.",
+code:`// Couche réseau abstraite\nprotocol HTTPClient: Sendable {\n    func request<T: Decodable>(_ endpoint: Endpoint) async throws -> T\n}\n\nstruct Endpoint {\n    let path: String\n    let method: HTTPMethod\n    let headers: [String: String]\n    let body: Data?\n}\n\nstruct URLSessionHTTPClient: HTTPClient {\n    private let session: URLSession\n    private let baseURL: URL\n    private let interceptors: [any RequestInterceptor]\n\n    func request<T: Decodable>(_ endpoint: Endpoint) async throws -> T {\n        var request = URLRequest(url: baseURL.appending(path: endpoint.path))\n        request.httpMethod = endpoint.method.rawValue\n        request.httpBody = endpoint.body\n\n        // Appliquer les interceptors (auth, logging)\n        for interceptor in interceptors {\n            request = try await interceptor.intercept(request)\n        }\n\n        // Retry avec backoff exponentiel\n        return try await withRetry(maxAttempts: 3) {\n            let (data, response) = try await session.data(for: request)\n            guard let http = response as? HTTPURLResponse else {\n                throw NetworkError.invalidResponse\n            }\n            guard 200..<300 ~= http.statusCode else {\n                throw NetworkError.serverError(statusCode: http.statusCode)\n            }\n            return try JSONDecoder().decode(T.self, from: data)\n        }\n    }\n}\n\nfunc withRetry<T>(maxAttempts: Int, op: () async throws -> T) async throws -> T {\n    for attempt in 1...maxAttempts {\n        do { return try await op() }\n        catch where attempt < maxAttempts {\n            try await Task.sleep(for: .seconds(pow(2, Double(attempt - 1))))\n        }\n    }\n    return try await op()\n}`,
+questions:[
+{q:"Comment structurer une couche réseau testable ?",a:"Protocole HTTPClient avec une seule méthode request. Implémentation URLSession + Mock pour tests. Interceptors pour cross-cutting concerns (auth, logging). Endpoints comme types valeur."},
+{q:"Retry avec exponential backoff ?",a:"Boucle avec délai croissant (1s, 2s, 4s...). Respecter la cancellation. Ne pas retry les erreurs client (4xx). Retry uniquement les timeout et erreurs serveur (5xx)."},
+{q:"Certificate pinning ?",a:"URLSessionDelegate.urlSession(_:didReceive:) pour valider le certificat serveur. Comparer le hash de la clé publique. Prévoir un fallback si le cert est renouvelé. NSAppTransportSecurity pour la config."}
+],traps:"URLSession directement dans les ViewModels — pas testable.\nRetry sans backoff — DDoS son propre serveur.\nPas de gestion des erreurs réseau spécifiques — mauvaise UX."},
+
+caching:{
+concept:"Stratégies de cache iOS : NSCache (mémoire, auto-éviction sous pression), URLCache (HTTP, respecte Cache-Control), disk cache custom (FileManager), ETags pour validation serveur. Le bon cache réduit la latence et la consommation réseau.",
+code:`// Cache à deux niveaux : mémoire + disque\nactor TwoLevelCache<T: Codable & Sendable> {\n    private let memory = NSCache<NSString, CacheEntry<T>>()\n    private let diskURL: URL\n    private let maxAge: TimeInterval\n\n    init(name: String, maxAge: TimeInterval = 3600) {\n        self.maxAge = maxAge\n        self.diskURL = FileManager.default\n            .urls(for: .cachesDirectory, in: .userDomainMask)[0]\n            .appending(component: name)\n        try? FileManager.default.createDirectory(at: diskURL, withIntermediateDirectories: true)\n    }\n\n    func get(key: String) -> T? {\n        let nsKey = key as NSString\n        // 1. Mémoire\n        if let entry = memory.object(forKey: nsKey), !entry.isExpired(maxAge: maxAge) {\n            return entry.value\n        }\n        // 2. Disque\n        let fileURL = diskURL.appending(component: key.sha256)\n        guard let data = try? Data(contentsOf: fileURL),\n              let entry = try? JSONDecoder().decode(CacheEntry<T>.self, from: data),\n              !entry.isExpired(maxAge: maxAge)\n        else { return nil }\n        memory.setObject(entry, forKey: nsKey)\n        return entry.value\n    }\n\n    func set(key: String, value: T) {\n        let entry = CacheEntry(value: value, timestamp: Date())\n        memory.setObject(entry, forKey: key as NSString)\n        let fileURL = diskURL.appending(component: key.sha256)\n        try? JSONEncoder().encode(entry).write(to: fileURL)\n    }\n}`,
+questions:[
+{q:"NSCache vs Dictionary pour le cache mémoire ?",a:"NSCache : éviction automatique sous pression mémoire, thread-safe, pas de copie des valeurs. Dictionary : pas d'éviction, pas thread-safe. Toujours NSCache pour le cache mémoire."},
+{q:"ETags — comment implémenter ?",a:"Stocker le ETag de la dernière réponse. Envoyer If-None-Match dans la requête suivante. Si 304 Not Modified, utiliser le cache. Sinon, mettre à jour cache et ETag."},
+{q:"Invalidation de cache — stratégies ?",a:"TTL (Time-To-Live) : expiration automatique. Event-based : invalidation sur mutation. Versioning : clé de cache incluant la version. LRU : éviction du moins récemment utilisé quand le cache est plein."}
+],traps:"Pas de stratégie d'invalidation — données stale indéfiniment.\nCache disk sans limite de taille — storage explose.\nIgnorer URLCache natif — réinventer la roue pour du HTTP standard."},
+
+perf:{
+concept:"Performance iOS : Time Profiler (CPU), Allocations (mémoire), Hangs (main thread > 250ms), MetricKit (métriques terrain), os_signpost (instrumentation custom). L'objectif : 60fps, pas de hang, mémoire maîtrisée. Instruments est l'outil principal.",
+code:`import os\n\n// Instrumentation avec os_signpost\nextension OSLog {\n    static let performance = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "Performance")\n}\n\nstruct PerformanceTracker {\n    private static let signposter = OSSignposter(logHandle: .performance)\n\n    // Mesurer une opération async\n    static func measure<T>(\n        _ name: StaticString,\n        operation: () async throws -> T\n    ) async rethrows -> T {\n        let state = signposter.beginInterval(name)\n        defer { signposter.endInterval(name, state) }\n        return try await operation()\n    }\n}\n\n// Usage\nfunc loadData() async throws -> [Item] {\n    try await PerformanceTracker.measure("loadData") {\n        try await repository.fetchAll()\n    }\n}\n\n// MetricKit pour métriques terrain\nclass MetricsManager: NSObject, MXMetricManagerSubscriber {\n    func didReceive(_ payloads: [MXMetricPayload]) {\n        for payload in payloads {\n            if let hangMetrics = payload.applicationResponsivenessMetrics {\n                // Analyser les hangs en production\n                Logger.metrics.info("Hang duration: \\(hangMetrics)")\n            }\n        }\n    }\n}\n\n// Détection des hangs\n// MainActor > 250ms = hang visible\n// Causes fréquentes: I/O synchrone, décodage lourd, layout complexe\n// Solution: déplacer le travail lourd hors du MainActor`,
+questions:[
+{q:"Comment détecter les hangs du main thread ?",a:"Instruments > Thread State Trace montre les périodes de blocage. Xcode Organizer montre les hang reports de production. MetricKit collecte les métriques terrain. Un hang = main thread bloqué > 250ms. Cause typique : I/O synchrone, décodage JSON lourd sur main thread."},
+{q:"Time Profiler vs Allocations ?",a:"Time Profiler : échantillonne la stack trace toutes les 1ms pour identifier où le CPU est consommé. Allocations : trace chaque allocation mémoire et identifie les leaks et la croissance. Utiliser Time Profiler pour la lenteur, Allocations pour la mémoire."},
+{q:"os_signpost vs print pour le profiling ?",a:"os_signpost s'intègre dans Instruments (Points of Interest), permet des intervalles nommés, est optimisé (zero-cost quand pas de recording), et filtre par catégorie. print pollue la console et n'est pas mesurable. os.Logger pour les logs, os_signpost pour le profiling."}
+],traps:"Décoder du JSON sur le main thread — hang garanti avec de gros payloads.\nPas de profiling avant optimisation — optimiser au feeling est contre-productif.\nIgnorer MetricKit — les problèmes terrain sont différents du simulateur."},
+
+cicd:{
+concept:"CI/CD iOS : GitHub Actions ou Xcode Cloud pour l'intégration continue (build, test, lint). Fastlane pour l'automatisation (signing, screenshots, distribution). TestFlight pour la beta distribution. Code signing avec match (Fastlane) ou Xcode automatic signing.",
+code:`# .github/workflows/ios.yml\nname: iOS CI\n\non:\n  push:\n    branches: [main]\n  pull_request:\n    branches: [main]\n\njobs:\n  build-and-test:\n    runs-on: macos-14\n    steps:\n      - uses: actions/checkout@v4\n\n      - name: Select Xcode\n        run: sudo xcode-select -s /Applications/Xcode_16.app\n\n      - name: Build\n        run: |\n          xcodebuild build-for-testing \\\n            -scheme MyApp \\\n            -destination 'platform=iOS Simulator,name=iPhone 16' \\\n            -skipPackagePluginValidation\n\n      - name: Test\n        run: |\n          xcodebuild test-without-building \\\n            -scheme MyApp \\\n            -destination 'platform=iOS Simulator,name=iPhone 16' \\\n            -resultBundlePath TestResults.xcresult\n\n      - name: SwiftLint\n        run: swiftlint lint --strict\n\n# Fastlane: Fastfile\nlane :beta do\n  increment_build_number\n  build_app(scheme: "MyApp")\n  upload_to_testflight\n  slack(message: "Nouvelle beta disponible!")\nend`,
+questions:[
+{q:"GitHub Actions vs Xcode Cloud ?",a:"GitHub Actions : plus flexible, gratuit pour open source, intégration GitHub native, runners macOS payants. Xcode Cloud : intégré à Xcode/App Store Connect, config UI, runners Apple gratuits (limités). Actions pour les équipes GitHub-centric, Xcode Cloud pour les petites équipes Apple-only."},
+{q:"Code signing automatisé ?",a:"Fastlane match : stocke les certificats/profiles dans un repo Git privé, partagé par l'équipe. Xcode automatic signing : simple mais limité au dev local. Pour CI/CD, match est le standard — évite les problèmes de signing entre machines."},
+{q:"Stratégie de versioning ?",a:"Semantic versioning (major.minor.patch) pour le marketing version. Build number auto-incrémenté en CI. Tags Git pour les releases. CFBundleShortVersionString pour le user-facing, CFBundleVersion pour le build number."}
+],traps:"Pas de CI — les régressions sont découvertes manuellement.\nSigning certificates expirés en CI — prévoir le renouvellement.\nBuild times longs — cacher les SPM dependencies et utiliser build-for-testing/test-without-building."},
+
+codereview:{
+concept:"Code review efficace : PR de taille raisonnable (< 400 lignes), description claire, checklist (tests, accessibilité, concurrency). Documentation DocC pour les API publiques. SwiftLint pour le style automatisé. Naming suivant les Swift API Design Guidelines.",
+code:`/// A repository that manages product persistence and retrieval.\n///\n/// Use this repository to perform CRUD operations on products.\n/// The repository abstracts the underlying storage mechanism.\n///\n/// ## Usage\n///\n/// \`\`\`swift\n/// let repo = RemoteProductRepository(client: httpClient)\n/// let products = try await repo.fetchAll()\n/// \`\`\`\n///\n/// - Important: All methods are safe to call from any actor.\nprotocol ProductRepository: Sendable {\n    /// Fetches all available products, sorted by name.\n    ///\n    /// - Returns: An array of products.\n    /// - Throws: NetworkError if the request fails.\n    func fetchAll() async throws -> [Product]\n\n    /// Saves a product to the store.\n    ///\n    /// If a product with the same ID exists, it is updated.\n    ///\n    /// - Parameter product: The product to save.\n    /// - Throws: NetworkError if the request fails.\n    func save(_ product: Product) async throws\n}\n\n// SwiftLint: .swiftlint.yml\n// disabled_rules:\n//   - trailing_whitespace\n// opt_in_rules:\n//   - empty_count\n//   - closure_spacing\n// line_length:\n//   warning: 120\n//   error: 200`,
+questions:[
+{q:"Qu'est-ce qu'une bonne PR ?",a:"< 400 lignes, un seul objectif, description expliquant le pourquoi (pas le quoi), screenshots si UI, tests inclus. Séparer refactoring et features en PRs distinctes. Reviewer en < 24h."},
+{q:"Naming — Swift API Design Guidelines ?",a:"Méthodes : verbes pour les mutations (append), noms pour les non-mutating (appending). Paramètres : labels clairs, omettre le first label si évident. Types : noms, pas de préfixes. Protocols : -able/-ible pour les capacités, noms pour les rôles."},
+{q:"DocC — quand documenter ?",a:"Toute API publique : protocoles, classes publiques, méthodes publiques. Au minimum : description, paramètres, return, throws. Les exemples de code (///) sont très appréciés. DocC génère une documentation navigable."}
+],traps:"PRs > 1000 lignes — impossible à reviewer correctement.\nPas de description de PR — le reviewer ne comprend pas le contexte.\nSwiftLint désactivé — le style diverge entre développeurs."},
+
+behavioral:{
+concept:"Les questions comportementales évaluent le leadership technique, la communication, et la résolution de problèmes. Méthode STAR : Situation, Task, Action, Result. Préparer des histoires concrètes pour chaque catégorie : conflit technique, deadline serrée, mentoring, échec, initiative.",
+code:`// Pas de code — voici le framework STAR\n\n// SITUATION: Décrire le contexte\n// "Dans mon précédent poste, notre app crashait\n// 200 fois/jour après une mise à jour majeure"\n\n// TASK: Votre rôle\n// "En tant que lead iOS, je devais identifier la cause\n// et déployer un fix en moins de 48h"\n\n// ACTION: Ce que vous avez fait\n// "J'ai analysé les crash reports Firebase, identifié un\n// race condition dans notre couche de cache, et implémenté\n// une solution avec un actor Swift. J'ai aussi mis en place\n// des tests de concurrence pour prévenir les régressions"\n\n// RESULT: Impact mesurable\n// "Le crash rate est passé de 2% à 0.01% en 24h.\n// J'ai ensuite proposé un audit de concurrence de toute\n// la codebase, qui a éliminé 12 data races potentielles"`,
+questions:[
+{q:"Décrivez un conflit technique avec un collègue.",a:"STAR : Décrire un désaccord sur une architecture ou un choix technique. Montrer l'écoute, l'argumentation basée sur des faits (benchmarks, maintainabilité), et le compromis. Résultat : décision technique solide ET relation préservée. Ne pas dénigrer l'autre personne."},
+{q:"Comment gérez-vous une deadline impossible ?",a:"STAR : Montrer la priorisation (MVP vs nice-to-have), la communication proactive avec le management, la négociation du scope, et la qualité maintenue. Ne pas dire « j'ai travaillé 80h/semaine » — montrer le leadership et la gestion intelligente."},
+{q:"Votre plus grand échec technique ?",a:"STAR : Être honnête sur l'erreur. Montrer l'analyse post-mortem, les leçons tirées, et les changements concrets mis en place. Un candidat qui n'a jamais échoué n'a jamais pris de risque. L'important est le learning et l'amélioration systémique."}
+],traps:"Réponses vagues sans exemples concrets — toujours STAR.\nCritiquer les anciens collègues ou employeurs — red flag.\nNe pas quantifier les résultats — \"ça a marché\" vs \"crash rate -99%\"."},
+
+livecoding:{
+concept:"Le live coding évalue la capacité à résoudre un problème en temps réel, communiquer son raisonnement, et écrire du code propre sous pression. Patterns fréquents : parsing JSON, table view/list, networking, algorithmes basiques. La communication est aussi importante que le code.",
+code:`// Exercice classique: app de recherche avec debounce\n\n@MainActor @Observable\nclass SearchViewModel {\n    var query = "" {\n        didSet { debounceSearch() }\n    }\n    var results: [SearchResult] = []\n    var isSearching = false\n    private var searchTask: Task<Void, Never>?\n\n    private let client: any HTTPClient\n\n    init(client: any HTTPClient) {\n        self.client = client\n    }\n\n    private func debounceSearch() {\n        searchTask?.cancel()\n        guard !query.isEmpty else {\n            results = []\n            return\n        }\n\n        searchTask = Task {\n            try? await Task.sleep(for: .milliseconds(300))\n            guard !Task.isCancelled else { return }\n            isSearching = true\n            defer { isSearching = false }\n            results = (try? await client.get(\n                "/search?q=\\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"\n            )) ?? []\n        }\n    }\n}\n\nstruct SearchView: View {\n    @State private var viewModel = SearchViewModel(client: LiveHTTPClient())\n    var body: some View {\n        NavigationStack {\n            List(viewModel.results) { result in\n                Text(result.title)\n            }\n            .overlay {\n                if viewModel.isSearching { ProgressView() }\n                if viewModel.results.isEmpty && !viewModel.query.isEmpty {\n                    ContentUnavailableView.search(text: viewModel.query)\n                }\n            }\n            .searchable(text: Bindable(viewModel).query)\n            .navigationTitle("Recherche")\n        }\n    }\n}`,
+questions:[
+{q:"Comment aborder un exercice de live coding ?",a:"1) Clarifier le problème et les contraintes (5 min). 2) Exposer l'approche à voix haute avant de coder. 3) Commencer par la structure (types, protocoles). 4) Implémenter progressivement. 5) Tester mentalement les edge cases. Communiquer en continu — le silence est pénalisant."},
+{q:"Quels patterns sont les plus demandés ?",a:"App de liste avec réseau (fetch + display), recherche avec debounce, MVVM basique, navigation programmatique, gestion d'erreurs, caching simple. Montrer @Observable, @MainActor, async/await, et protocol-based DI."},
+{q:"Comment gérer quand on est bloqué ?",a:"Dire à voix haute ce qu'on a essayé et pourquoi ça ne marche pas. Demander un indice si nécessaire — ce n'est pas pénalisant. Proposer une alternative ou simplifier l'approche. Ne jamais rester silencieux pendant plus de 30 secondes."}
+],traps:"Coder sans communiquer — l'interviewer ne voit pas votre raisonnement.\nSe précipiter sans clarifier le problème — résoudre le mauvais problème.\nViser la perfection au lieu d'une solution qui marche — livrer d'abord, refactorer ensuite."}
+};
+
+let done=new Set();let lastV=[];
+function save(){localStorage.setItem('ip-d',JSON.stringify([...done]));localStorage.setItem('ip-l',JSON.stringify(lastV))}
+function load(){try{const d=localStorage.getItem('ip-d');if(d)done=new Set(JSON.parse(d));const l=localStorage.getItem('ip-l');if(l)lastV=JSON.parse(l)}catch(e){}}
+load();
+const $=id=>document.getElementById(id);
+
+function nav(p){
+document.querySelectorAll('.pg').forEach(e=>e.classList.remove('a'));
+document.querySelectorAll('.ni').forEach(e=>e.classList.remove('a'));
+const t=$(('pg-'+p));if(t)t.classList.add('a');
+const n=document.querySelector(`.ni[data-p="${p}"]`);if(n)n.classList.add('a');
+if(p==='dash')renderDash();
+else if(p==='search'){$('sI').focus();renderS('')}
+else if(p.startsWith('w'))renderWeek(parseInt(p[1]));
+$('sb').classList.remove('op');$('ov').classList.remove('op');
+window.scrollTo(0,0);
+}
+
+function goTopic(wi,tid){
+document.querySelectorAll('.pg').forEach(e=>e.classList.remove('a'));
+$('pg-topic').classList.add('a');
+const tp=WEEKS[wi].topics.find(t=>t.id===tid);
+if(tp){if(!lastV.includes(tid)){lastV.unshift(tid);if(lastV.length>6)lastV.pop();save()}
+renderTopic(wi,tp)}
+window.scrollTo(0,0);
+}
+
+document.querySelectorAll('.ni').forEach(n=>n.addEventListener('click',()=>nav(n.dataset.p)));
+$('mt').onclick=()=>{$('sb').classList.toggle('op');$('ov').classList.toggle('op')};
+$('ov').onclick=()=>{$('sb').classList.remove('op');$('ov').classList.remove('op')};
+
+function badges(){WEEKS.forEach((w,i)=>{const n=w.topics.filter(t=>done.has(t.id)).length;$('b'+i).textContent=n+'/8'})}
+
+function renderDash(){
+const n=done.size,p=Math.round(n/32*100);
+$('sd').textContent=n;$('sp').textContent=p+'%';$('sr').textContent=32-n;
+const dl=[];WEEKS.forEach(w=>w.topics.forEach(t=>{if(done.has(t.id))dl.push(t.lvl)}));
+const lm={mid:1,hard:2,expert:3};
+$('sa').textContent=dl.length?(dl.reduce((s,l)=>s+lm[l],0)/dl.length<1.5?'Inter.':dl.reduce((s,l)=>s+lm[l],0)/dl.length<2.5?'Avancé':'Expert'):'—';
+let bh='';WEEKS.forEach((w,i)=>{const wd=w.topics.filter(t=>done.has(t.id)).length;const wp=Math.round(wd/8*100);
+bh+=`<div class="wp"><span class="wl">${w.name}</span><div class="wb"><div class="wf" style="width:${wp}%;background:${w.color}"></div></div><span class="wc">${wp}%</span></div>`});
+$('wb').innerHTML=bh;
+const recent=lastV.slice(0,4).map(id=>{for(let i=0;i<WEEKS.length;i++){const t=WEEKS[i].topics.find(tp=>tp.id===id);if(t)return{wi:i,t}}return null}).filter(Boolean);
+$('rg').innerHTML=recent.length?recent.map(({wi,t})=>`<div class="rc" onclick="goTopic(${wi},'${t.id}')"><div class="rt">${t.t}</div><div class="rw">${WEEKS[wi].name} — ${WEEKS[wi].title}</div></div>`).join(''):'<div style="grid-column:1/-1;text-align:center;padding:2rem;color:var(--t3)">Clique sur un thème pour commencer</div>';
+badges();
+}
+
+function renderWeek(wi){
+const w=WEEKS[wi];const wd=w.topics.filter(t=>done.has(t.id)).length;const wp=Math.round(wd/8*100);
+let h=`<div class="wh"><h2>${w.title}</h2><p>${w.desc}</p><div class="pr"><span>${wd}/8</span><div class="b"><div class="f" style="width:${wp}%;background:${w.color}"></div></div><span>${wp}%</span></div></div><div class="tl">`;
+w.topics.forEach((t,i)=>{const d=done.has(t.id);
+h+=`<div class="tr${d?' dn':''}" onclick="goTopic(${wi},'${t.id}')"><span class="tn">${String(i+1).padStart(2,'0')}</span><div class="ti"><div class="tt">${t.t}</div><div class="td">${t.d}</div></div><span class="lv lv-${t.lvl}">${t.lvl==='mid'?'inter.':t.lvl==='hard'?'avancé':'expert'}</span><div class="ck${d?' cd':''}"></div></div>`});
+h+='</div>';$('pg-w'+wi).innerHTML=h;
+}
+
+function hl(c){return c.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+.replace(/(\/\/.*)/g,'<span class="cmt">$1</span>')
+.replace(/\b(func|let|var|struct|class|enum|protocol|actor|import|return|if|else|guard|switch|case|for|while|async|await|try|catch|throw|throws|self|Self|nil|true|false|init|deinit|extension|where|some|any|typealias|associatedtype|nonisolated|isolated|consuming|borrowing|sending|weak|unowned|lazy|static|final|override|mutating|nonmutating|private|fileprivate|internal|public|open|do|defer|in|break|continue|@MainActor|@Observable|@Bindable|@Sendable|@Test|@Entry|@Suite|@Model|@Query|@Environment|@State|@Binding|@Relationship|@unchecked|Task|TaskGroup|MainActor|Sendable|ModelContext|ModelContainer|NavigationStack|NavigationPath|AsyncStream|Result)\b/g,'<span class="kw">$1</span>')
+.replace(/"([^"]*)"/g,'<span class="str">"$1"</span>')}
+
+function renderTopic(wi,tp){
+const c=CONTENT[tp.id];if(!c)return;
+const d=done.has(tp.id);
+$('pg-topic').innerHTML=`<div style="animation:fi .3s ease">
+<div class="bk" onclick="nav('w${wi}')">← ${WEEKS[wi].title}</div>
+<div class="dt">${tp.t}</div>
+<div class="dm"><span class="lv lv-${tp.lvl}">${tp.lvl==='mid'?'intermédiaire':tp.lvl==='hard'?'avancé':'expert'}</span><span style="font-size:.8rem;color:var(--t3)">${tp.d}</span></div>
+<div class="cs"><div class="cl">Concept clé</div><div class="ct">${c.concept}</div></div>
+<div class="cs"><div class="cl">Exemple de code</div><div class="cb">${hl(c.code)}</div></div>
+<div class="cs"><div class="cl">Questions d'entretien</div><div class="ql">${c.questions.map(q=>`<div class="qi"><div class="qq">${q.q}<span class="qa">▸</span></div><div class="qn">${q.a}</div></div>`).join('')}</div></div>
+<div class="cs"><div class="cl">Pièges fréquents</div><div class="tb">${c.traps.replace(/\n/g,'<br>')}</div></div>
+<div class="da"><button class="bt bt-g${d?' on':''}" id="db">${d?'Maîtrisé ✓':'Marquer comme maîtrisé'}</button></div>
+</div>`;
+document.querySelectorAll('.qi').forEach(el=>el.querySelector('.qq').onclick=()=>el.classList.toggle('o'));
+$('db').onclick=()=>{if(done.has(tp.id))done.delete(tp.id);else done.add(tp.id);save();badges();renderTopic(wi,tp)};
+}
+
+$('sI').addEventListener('input',e=>renderS(e.target.value));
+function renderS(q){
+q=q.toLowerCase().trim();const r=$('sR');
+if(!q){r.innerHTML='<div style="text-align:center;padding:2rem;color:var(--t3)">Tape un mot-clé</div>';return}
+let m=[];WEEKS.forEach((w,wi)=>w.topics.forEach(t=>{if(t.t.toLowerCase().includes(q)||t.d.toLowerCase().includes(q)||t.id.includes(q))m.push({wi,t})}));
+r.innerHTML=m.length?m.map(({wi,t})=>`<div class="tr${done.has(t.id)?' dn':''}" onclick="goTopic(${wi},'${t.id}')"><span class="tn">${WEEKS[wi].name.replace('Semaine ','S')}</span><div class="ti"><div class="tt">${t.t}</div><div class="td">${t.d}</div></div><span class="lv lv-${t.lvl}">${t.lvl==='mid'?'inter.':t.lvl==='hard'?'avancé':'expert'}</span><div class="ck${done.has(t.id)?' cd':''}"></div></div>`).join(''):`<div style="text-align:center;padding:2rem;color:var(--t3)">Aucun résultat</div>`;
+}
+
+renderDash();badges();
+</script>
+</body>
+</html>
