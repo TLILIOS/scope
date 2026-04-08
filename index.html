@@ -504,10 +504,15 @@ h+=`<div class="tr${d?' dn':''}" onclick="goTopic(${wi},'${t.id}')"><span class=
 h+='</div>';$('pg-w'+wi).innerHTML=h;
 }
 
-function hl(c){return c.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-.replace(/(\/\/.*)/g,'<span class="cmt">$1</span>')
-.replace(/\b(func|let|var|struct|class|enum|protocol|actor|import|return|if|else|guard|switch|case|for|while|async|await|try|catch|throw|throws|self|Self|nil|true|false|init|deinit|extension|where|some|any|typealias|associatedtype|nonisolated|isolated|consuming|borrowing|sending|weak|unowned|lazy|static|final|override|mutating|nonmutating|private|fileprivate|internal|public|open|do|defer|in|break|continue|@MainActor|@Observable|@Bindable|@Sendable|@Test|@Entry|@Suite|@Model|@Query|@Environment|@State|@Binding|@Relationship|@unchecked|Task|TaskGroup|MainActor|Sendable|ModelContext|ModelContainer|NavigationStack|NavigationPath|AsyncStream|Result)\b/g,'<span class="kw">$1</span>')
-.replace(/"([^"]*)"/g,'<span class="str">"$1"</span>')}
+function hl(c){c=c.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+var KW=/^(func|let|var|struct|class|enum|protocol|actor|import|return|if|else|guard|switch|case|for|while|async|await|try|catch|throw|throws|self|Self|nil|true|false|init|deinit|extension|where|some|any|typealias|associatedtype|nonisolated|isolated|consuming|borrowing|sending|weak|unowned|lazy|static|final|override|mutating|nonmutating|private|fileprivate|internal|public|open|do|defer|in|break|continue|Task|TaskGroup|MainActor|Sendable|ModelContext|ModelContainer|NavigationStack|NavigationPath|AsyncStream|Result)$/;
+return c.replace(/(\/\/.*)|("(?:[^"\\]|\\.)*")|(@\w+)|(\b[A-Za-z_]\w*\b)|(\b\d+\b)/g,function(m,cmt,str,attr,word,num){
+if(cmt)return'<span class="cmt">'+cmt+'</span>';
+if(str)return'<span class="str">'+str+'</span>';
+if(attr)return'<span class="kw">'+attr+'</span>';
+if(word&&KW.test(word))return'<span class="kw">'+word+'</span>';
+if(num)return'<span class="num">'+num+'</span>';
+return m})}
 
 function renderTopic(wi,tp){
 const c=CONTENT[tp.id];if(!c)return;
